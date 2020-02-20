@@ -1,0 +1,53 @@
+{
+  "name": "@omni-door/tpl-utils",
+  "version": "0.0.1",
+  "description": "The utils of omni-door's templates",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "nyc mocha --opts mocha.opts",
+    "lint": "eslint src/ --ext .ts --ext .tsx",
+    "lint:fix": "eslint src/ --ext .ts --ext .tsx --fix",
+    "build": "npm run build:rm && npm run build:tsc",
+    "build:rm": "rm -rf lib/*",
+    "build:tsc": "tsc --build",
+    "build:branch": "./.build/branch.sh",
+    "build:version": "./.build/version.sh",
+    "release": "npm run build:branch master && npm run build && npm run build:version"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/omni-door/tpl-utils.git"
+  },
+  "keywords": [
+    "omni",
+    "omni-door",
+    "template",
+    "utils"
+  ],
+  "author": "bobby.li",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/omni-door/tpl-utils/issues"
+  },
+  "homepage": "https://github.com/omni-door/tpl-utils#readme",
+  "dependencies": {
+    "chalk": "^3.0.0",
+    "fs-extra": "^8.1.0",
+    "shelljs": "^0.8.3"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.2.9",
+    "@types/fs-extra": "^8.1.0",
+    "@types/mocha": "^7.0.1",
+    "@types/node": "^13.7.4",
+    "@types/shelljs": "^0.8.6",
+    "@typescript-eslint/eslint-plugin": "^2.20.0",
+    "@typescript-eslint/parser": "^2.20.0",
+    "chai": "^4.2.0",
+    "eslint": "^6.8.0",
+    "mocha": "^7.0.1",
+    "nyc": "^15.0.0",
+    "ts-node": "^8.6.2",
+    "typescript": "^3.7.5"
+  }
+}
