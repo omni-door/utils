@@ -1,7 +1,7 @@
 # 🐸 @omni-door/tpl-utils
 The Utils for @omni-door/cli and other templates project.
 
-## install
+## Install
 * Clone the repo: `git clone git@github.com:omni-door/tpl-utils.git`
 
 * Install with [npm](https://www.npmjs.com/package/@omni-door/tpl-utils): `npm install @omni-door/tpl-utils`
