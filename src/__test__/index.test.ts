@@ -1,8 +1,8 @@
 import { describe, it } from 'mocha';
 import { expect } from 'chai';
 import exec from '../exec';
-import getLogPrefix, { setLogo, getLogo, setBrand, getBrand } from '../log_prefix';
-import { logDetail, logEmph, logInfo, logErr, logWarn, logSuc } from '../logger';
+import logPrefix, { setLogo, getLogo, setBrand, getBrand } from '../log_prefix';
+import { logDetail, logEmph, logInfo, logErr, logWarn, logSuc, underline, italic } from '../logger';
 import node_version from '../node_version';
 import output_file from '../output_file';
 
@@ -14,7 +14,7 @@ describe('exec test', function () {
 
 describe('log_prefix test', function () {
   it('type checking', function () {
-    expect(getLogPrefix).to.be.a('function');
+    expect(logPrefix).to.be.a('function');
     expect(setLogo).to.be.a('function');
     expect(getLogo).to.be.a('function');
     expect(setBrand).to.be.a('function');
@@ -30,6 +30,8 @@ describe('logger test', function () {
     expect(logErr).to.be.a('function');
     expect(logWarn).to.be.a('function');
     expect(logSuc).to.be.a('function');
+    expect(underline).to.be.a('function');
+    expect(italic).to.be.a('function');
   });
 });
 

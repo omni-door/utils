@@ -11,7 +11,9 @@ import {
   logErr,
   logInfo,
   logSuc,
-  logWarn
+  logWarn,
+  underline,
+  italic
 } from './logger';
 import node_version from './node_version';
 import output_file from './output_file';
@@ -29,7 +31,9 @@ export {
   logErr,
   logInfo,
   logSuc,
-  logWarn
+  logWarn,
+  underline,
+  italic
 } from './logger';
 export { default as node_version } from './node_version';
 export { default as output_file } from './output_file';
@@ -47,6 +51,8 @@ export default {
   logInfo,
   logSuc,
   logWarn,
+  underline,
+  italic,
   node_version,
   output_file
 };
