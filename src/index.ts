@@ -18,6 +18,7 @@ import {
 import node_version from './node_version';
 import output_file from './output_file';
 
+export { BUILD, PKJTOOL, PLUGINSTAGE, PROJECT_TYPE, STRATEGY, STYLE, LogLevel, MARKDOWN, DEVSERVER } from './global.d';
 export { default as exec } from './exec';
 export { default as logPrefix,
   setLogo,

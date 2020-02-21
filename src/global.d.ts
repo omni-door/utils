@@ -1,0 +1,9 @@
+export type BUILD = 'webpack' | 'rollup' | 'tsc' | '';
+export type PROJECT_TYPE = 'spa-react' | 'component-library-react' | 'toolkit';
+export type PKJTOOL = 'yarn' | 'npm' | 'cnpm';
+export type STYLE = 'less' | 'scss' | 'css' | 'all' | '';
+export type DEVSERVER = 'docz' | 'storybook' | 'bisheng' | '';
+export type STRATEGY = 'stable' | 'latest';
+export type LogLevel = 'debug' | 'info' | 'warn' | 'error' | 'silent';
+export type PLUGINSTAGE = 'new' | 'build' | 'release';
+export type MARKDOWN = 'mdx' | 'md';
