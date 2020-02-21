@@ -15,6 +15,11 @@ import {
   underline,
   italic
 } from './logger';
+import {
+  getDependency,
+  arr2str,
+  intersection
+} from './dependencies';
 import node_version from './node_version';
 import output_file from './output_file';
 
@@ -36,6 +41,11 @@ export {
   underline,
   italic
 } from './logger';
+export {
+  getDependency,
+  arr2str,
+  intersection
+} from './dependencies';
 export { default as node_version } from './node_version';
 export { default as output_file } from './output_file';
 
@@ -55,5 +65,8 @@ export default {
   underline,
   italic,
   node_version,
-  output_file
+  output_file,
+  getDependency,
+  arr2str,
+  intersection
 };

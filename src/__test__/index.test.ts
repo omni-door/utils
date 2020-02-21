@@ -3,6 +3,11 @@ import { expect } from 'chai';
 import exec from '../exec';
 import logPrefix, { setLogo, getLogo, setBrand, getBrand } from '../log_prefix';
 import { logDetail, logEmph, logInfo, logErr, logWarn, logSuc, underline, italic } from '../logger';
+import {
+  getDependency,
+  arr2str,
+  intersection
+} from '../dependencies';
 import node_version from '../node_version';
 import output_file from '../output_file';
 
@@ -44,5 +49,23 @@ describe('node_version test', function () {
 describe('output_file test', function () {
   it('type checking', function () {
     expect(output_file).to.be.a('function');
+  });
+});
+
+describe('getDependency test', function () {
+  it('type checking', function () {
+    expect(getDependency).to.be.a('function');
+  });
+});
+
+describe('arr2str test', function () {
+  it('type checking', function () {
+    expect(arr2str).to.be.a('function');
+  });
+});
+
+describe('intersection test', function () {
+  it('type checking', function () {
+    expect(intersection).to.be.a('function');
   });
 });
