@@ -131,3 +131,39 @@ The Utils for @omni-door/cli and other templates project.
     file_content: 'I am a test content!'
   });
   ```
+
+  - getDependency
+  ```js
+  import { getDependency } from '@omni-door/tpl-utils';
+
+  const dependency = getDependency('latest', {
+    'core-js': '3.6.4',
+    'react': '16.12.0',
+    'react-dom': '16.12.0',
+    'regenerator-runtime': '0.13.3'
+  });
+
+  const dependency_stable = getDependency('stable', {
+    'core-js': '3.6.4',
+    'react': '16.12.0',
+    'react-dom': '16.12.0',
+    'regenerator-runtime': '0.13.3'
+  });
+
+  dependency('react'); // 'react@latest'
+  dependency_stable('react'); // 'react@16.12.0'
+  ```
+
+- arr2str
+  ```js
+  import { arr2str } from '@omni-door/tpl-utils';
+
+  arr2str([1, 2, 3]); // "1 2 3"
+  ```
+
+- intersection
+  ```js
+  import { intersection } from '@omni-door/tpl-utils';
+
+  depArr = [ ...intersection(depArr, depArr.filter(v => v !== 1)) ]
+  ```
