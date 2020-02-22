@@ -21,7 +21,8 @@ export class Spinner {
       'info': '🔰',
       'warn': '❗️',
       'fail': '❌',
-      'succeed': '✅'
+      'succeed': '✅',
+      'stop': '❓'
     };
 
     const stateMapColor = {
@@ -29,7 +30,8 @@ export class Spinner {
       'info': 'yellowBright' as 'yellowBright',
       'warn': 'yellow' as 'yellow',
       'fail': 'red' as 'red',
-      'succeed': 'green' as 'green'
+      'succeed': 'green' as 'green',
+      'stop': 'gray' as 'gray'
     }
 
     text = `${getLogPrefix()} ${text}  ${stateMapEmoji[state]}  \n`;
