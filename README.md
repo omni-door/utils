@@ -15,8 +15,8 @@ The Utils for @omni-door/cli and other templates project.
 
   exec(
     ['npm test', 'ls && pwd', 'npm run build'],
-    () => console.info('成功！')),
-    () => console.error('失败')
+    () => console.info('成功！'),
+    () => console.error('失败！')
   );
   ```
 
@@ -112,13 +112,19 @@ The Utils for @omni-door/cli and other templates project.
   ```
 
 - node_version
+  ```sh
+  node -v # v10.13.0
+  ```
   ```js
   import { node_version } from '@omni-door/tpl-utils';
 
   (async function () {
-    const res1 = await node_version('8'); // require node version >= 8
-    const res2 = await node_version('9.2'); // require node version >= 9.2
-    const res3 = await node_version('10.18.0'); // require node version >= 10.18.0
+    const res1 = await node_version('10'); // require node version >= 10
+    const res2 = await node_version('10.14'); // require node version >= 9.2
+    const res3 = await node_version('10.13.5'); // require node version >= 10.18.0
+    res1; // true
+    res2; // false
+    res1; // false
   })()
   ```
 
