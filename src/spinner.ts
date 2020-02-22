@@ -1,4 +1,5 @@
 import ora from 'ora';
+import { SpinnerName } from 'cli-spinners';
 import chalk from 'chalk';
 import getLogPrefix from './log_prefix';
 import { SPINNER_STATE } from './global.d';
@@ -44,7 +45,7 @@ export class Spinner {
     this.spinner.color = color;
   }
 
-  public prefix (prefix: ora.Spinner) {
+  public prefix (prefix: SpinnerName) {
     this.spinner.spinner = prefix;
   }
 }
