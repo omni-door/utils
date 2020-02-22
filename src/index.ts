@@ -22,6 +22,7 @@ import {
 } from './dependencies';
 import node_version from './node_version';
 import output_file from './output_file';
+import spinner from './spinner';
 
 export { BUILD, PKJTOOL, PLUGINSTAGE, PROJECT_TYPE, STRATEGY, STYLE, LOGLEVEL, MARKDOWN, DEVSERVER, TESTFRAME } from './global.d';
 export { default as exec } from './exec';
@@ -48,6 +49,7 @@ export {
 } from './dependencies';
 export { default as node_version } from './node_version';
 export { default as output_file } from './output_file';
+export { default as spinner } from './spinner';
 
 export default {
   exec,
@@ -68,5 +70,6 @@ export default {
   output_file,
   getDependency,
   arr2str,
-  intersection
+  intersection,
+  spinner
 };

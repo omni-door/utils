@@ -1,6 +1,6 @@
 {
   "name": "@omni-door/tpl-utils",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "The utils of omni-door's templates",
   "main": "lib/index.js",
   "scripts": {
@@ -34,6 +34,7 @@
   "dependencies": {
     "chalk": "^3.0.0",
     "fs-extra": "^8.1.0",
+    "ora": "^4.0.3",
     "shelljs": "^0.8.3"
   },
   "devDependencies": {

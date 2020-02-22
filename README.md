@@ -167,3 +167,14 @@ The Utils for @omni-door/cli and other templates project.
 
   depArr = [ ...intersection(depArr, depArr.filter(v => v !== 1)) ]
   ```
+
+- spinner
+  ```js
+  import { spinner } from '@omni-door/tpl-utils';
+
+  spinner.state('start', 'begin!');
+  spinner.text('new text');
+  spinner.color('red');
+  spinner.prefix('dot8');
+  spinner.state('succeed', 'succeed!');
+  ```
