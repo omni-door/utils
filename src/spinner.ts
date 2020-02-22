@@ -39,9 +39,8 @@ export class Spinner {
   public state (state: SPINNER_STATE, text?: string) {
     this._state = state;
     // initial spinner
-    text = `${getLogPrefix()} ${text}  ${stateMapEmoji[state]}  \n`;
     const color = chalk[stateMapColor[state]];
-    this.spinner[state](color(this._decorateText(text)));
+    this.spinner[state](color(this._decorateText(text || '')));
   }
 
   private _decorateText (text: string) {
