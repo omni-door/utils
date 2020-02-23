@@ -29,14 +29,14 @@ The Utils for @omni-door/cli and other templates project.
   ```js
   import { logPrefix } from '@omni-door/tpl-utils';
 
-  logPrefix(); // 🐸  [OMNI-DOOR]:
+  logPrefix(); // 😊  [OMNI-DOOR]:
   ```
 
 - setLogo
   ```js
   import { setLogo } from '@omni-door/tpl-utils';
 
-  setLogo('🗡  ');
+  setLogo('❤️️️️  ');
   ```
 
 - setBrand
@@ -50,7 +50,7 @@ The Utils for @omni-door/cli and other templates project.
   ```js
   import { getLogo } from '@omni-door/tpl-utils';
 
-  getLogo(); // 🗡  
+  getLogo(); // ❤️️  
   ```
 
 - getBrand
@@ -64,56 +64,56 @@ The Utils for @omni-door/cli and other templates project.
   ```js
   import { logDetail } from '@omni-door/tpl-utils';
 
-  logDetail('this is a message!'); // 🗡  [ODYSSEY]: this is a message! (gray)
+  logDetail('this is a message!'); // ❤️️  [ODYSSEY]: this is a message! (gray)
   ```
 
 - logEmph
   ```js
   import { logEmph } from '@omni-door/tpl-utils';
 
-  logEmph('this is a message!'); // 🗡  [ODYSSEY]: this is a message! (cyan)
+  logEmph('this is a message!'); // ❤️️  [ODYSSEY]: this is a message! (cyan)
   ```
 
 - logErr
   ```js
   import { logErr } from '@omni-door/tpl-utils';
 
-  logErr('this is a message!'); // 🗡  [ODYSSEY]: this is a message! (red)
+  logErr('this is a message!'); // ❤️️  [ODYSSEY]: this is a message! (red)
   ```
 
 - logInfo
   ```js
   import { logInfo } from '@omni-door/tpl-utils';
 
-  logInfo('this is a message!'); // 🗡  [ODYSSEY]: this is a message! (white)
+  logInfo('this is a message!'); // ❤️️  [ODYSSEY]: this is a message! (white)
   ```
 
 - logSuc
   ```js
   import { logSuc } from '@omni-door/tpl-utils';
 
-  logSuc('this is a message!'); // 🗡  [ODYSSEY]: this is a message! (green)
+  logSuc('this is a message!'); // ❤️️  [ODYSSEY]: this is a message! (green)
   ```
 
 - logWarn
   ```js
   import { logWarn } from '@omni-door/tpl-utils';
 
-  logWarn('this is a message!'); // 🗡  [ODYSSEY]: this is a message! (yellow)
+  logWarn('this is a message!'); // ❤️️  [ODYSSEY]: this is a message! (yellow)
   ```
 
 - underline
   ```js
   import { underline } from '@omni-door/tpl-utils';
 
-  logWarn(underline('this is a message!')); // 🗡  [ODYSSEY]: this is a message! (has underline)
+  logWarn(underline('this is a message!')); // ❤️️  [ODYSSEY]: this is a message! (has underline)
   ```
 
 - italic
   ```js
   import { italic } from '@omni-door/tpl-utils';
 
-  logDetail(italic('this is a message!')); // 🗡  [ODYSSEY]: this is a message! (italic font)
+  logDetail(italic('this is a message!')); // ❤️️  [ODYSSEY]: this is a message! (italic font)
   ```
 
 - node_version
