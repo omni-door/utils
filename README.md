@@ -1,6 +1,11 @@
 # 🐸 @omni-door/tpl-utils
 The Utils for @omni-door/cli and other templates project.
 
+[![NPM downloads](http://img.shields.io/npm/dm/%40omni-door%2Ftpl-utils.svg?style=flat-square)](https://www.npmjs.com/package/@omni-door/tpl-utils)
+[![npm version](https://badge.fury.io/js/%40omni-door%2Ftpl-utils.svg)](https://badge.fury.io/js/%40omni-door%2Ftpl-utils)
+[![install size](https://packagephobia.now.sh/badge?p=%40omni-door%2Ftpl-utils)](https://packagephobia.now.sh/result?p=%40omni-door%2Ftpl-utils)
+[![license](http://img.shields.io/npm/l/%40omni-door%2Ftpl-utils.svg)](https://github.com/omni-door/tpl-utils/blob/master/LICENSE)
+
 ## Install
 * Clone the repo: `git clone git@github.com:omni-door/tpl-utils.git`
 
