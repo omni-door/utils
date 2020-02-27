@@ -1,4 +1,5 @@
-export const LOGO = '🐸  ';
+import chalk from 'chalk';
+export const LOGO = '🐸';
 export const BRAND = 'OMNI-DOOR';
 
 class Brand {
@@ -32,7 +33,7 @@ class Brand {
   }
 
   public getLogPrefix () {
-    return (this.logo || LOGO) + '[' + (this.brand || BRAND) + ']:';
+    return (this.logo || LOGO) + '  ' + chalk.underline('[' + (this.brand || BRAND) + ']:');
   }
 }
 

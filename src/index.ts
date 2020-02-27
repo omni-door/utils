@@ -12,6 +12,7 @@ import {
   logInfo,
   logSuc,
   logWarn,
+  logTime,
   underline,
   italic
 } from './logger';
@@ -39,6 +40,7 @@ export {
   logInfo,
   logSuc,
   logWarn,
+  logTime,
   underline,
   italic
 } from './logger';
@@ -64,6 +66,7 @@ export default {
   logInfo,
   logSuc,
   logWarn,
+  logTime,
   underline,
   italic,
   node_version,
