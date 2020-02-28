@@ -1,69 +1,38 @@
 import chalk from 'chalk';
 import { Signale } from 'signale';
-import { getLogo, getBrand } from './log_prefix';
-
-const basic = {
-  badge: getLogo(),
-  label: `[${getBrand()}]:`
-};
+import getLogPrefix, { getLogo, getBrand } from './log_prefix';
 
 const signale = new Signale({
-  types: {
-    success: {
-      ...basic,
-      color: 'green'
-    },
-    error: {
-      ...basic,
-      color: 'red'
-    },
-    warn: {
-      ...basic,
-      color: 'yellow'
-    },
-    info: {
-      ...basic,
-      color: 'white'
-    },
-    detail: {
-      ...basic,
-      color: 'gray'
-    },
-    emphasis: {
-      ...basic,
-      color: 'cyan'
-    }
-  }
+  scope: getBrand()
 });
 
-signale.config({
-  displayFilename: false,
-  displayTimestamp: false,
-  displayDate: false
+export const interactive = () => new Signale({
+  interactive: true,
+  scope: getBrand()
 });
 
 export function logErr (err: string) {
-  signale.error(chalk.red(err, '❌\n'));
+  console.error(chalk.red(getLogPrefix(), err, '❌\n'));
 }
 
 export function logWarn (warn: string) {
-  signale.warn(chalk.yellow(warn, '❗\n'));
+  console.warn(chalk.yellow(getLogPrefix(), warn, '❗\n'));
 }
 
 export function logInfo (info: string) {
-  signale.info(chalk.white(info, '\n'));
+  console.info(chalk.white(getLogPrefix(), info, '\n'));
 }
 
 export function logDetail (info: string) {
-  signale.detail(chalk.gray(info, '\n'));
+  console.log(chalk.gray(getLogPrefix(), info, '\n'));
 }
 
 export function logEmph (info: string) {
-  signale.emphasis(chalk.cyan(info, '🚩\n'));
+  console.info(chalk.cyan(getLogPrefix(), info, '🚩\n'));
 }
 
 export function logSuc (msg: string) {
-  return signale.success(chalk.green(chalk.bold(msg), '✅\n'));
+  console.info(chalk.green(getLogPrefix(), chalk.bold(msg), '✅\n'));
 }
 
 export function logTime (msg: string, isEnd?: boolean) {
