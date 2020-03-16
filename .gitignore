@@ -5,6 +5,7 @@ node_modules
 coverage
 lib
 
+test.js
 omni.config.js
 package-lock.json
 *.log

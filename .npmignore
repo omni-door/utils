@@ -19,6 +19,7 @@ _config.yml
 coverage
 .nycrc
 mocha.opts
+test.js
 
 yarn.lock
 package-lock.json

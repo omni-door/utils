@@ -1,6 +1,7 @@
 import chalk from 'chalk';
 import { Signale } from 'signale';
 import getLogPrefix, { getLogo, getBrand } from './log_prefix';
+import { stateMap2Emoji } from './emoji';
 
 const signale = new Signale({
   scope: getBrand()
@@ -12,27 +13,27 @@ export const interactive = () => new Signale({
 });
 
 export function logErr (err: string) {
-  console.error(chalk.red(getLogPrefix(), err, '❌\n'));
+  console.error(chalk.red(getLogPrefix(), err, stateMap2Emoji.fail, '\n'));
 }
 
 export function logWarn (warn: string) {
-  console.warn(chalk.yellow(getLogPrefix(), warn, '❗\n'));
+  console.warn(chalk.yellow(getLogPrefix(), warn, stateMap2Emoji.warn, '\n'));
 }
 
 export function logInfo (info: string) {
   console.info(chalk.white(getLogPrefix(), info, '\n'));
 }
 
-export function logDetail (info: string) {
-  console.log(chalk.gray(getLogPrefix(), info, '\n'));
+export function logDetail (detail: string) {
+  console.log(chalk.gray(getLogPrefix(), detail, '\n'));
 }
 
 export function logEmph (info: string) {
-  console.info(chalk.cyan(getLogPrefix(), info, '🚩\n'));
+  console.info(chalk.cyan(getLogPrefix(), info, stateMap2Emoji.emphasis, '\n'));
 }
 
 export function logSuc (msg: string) {
-  console.info(chalk.green(getLogPrefix(), chalk.bold(msg), '✅\n'));
+  console.info(chalk.green(getLogPrefix(), chalk.bold(msg), stateMap2Emoji.succeed, '\n'));
 }
 
 export function logTime (msg: string, isEnd?: boolean) {

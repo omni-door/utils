@@ -2,16 +2,8 @@ import ora from 'ora';
 import { SpinnerName } from 'cli-spinners';
 import chalk from 'chalk';
 import getLogPrefix from './log_prefix';
+import { stateMap2Emoji } from './emoji';
 import { SPINNER_STATE } from './global.d';
-
-const stateMapEmoji = {
-  'start': '💤',
-  'info': '🔰',
-  'warn': '❗️',
-  'fail': '❌',
-  'succeed': '✅',
-  'stop': '❓'
-};
 
 const stateMapColor = {
   'start': 'white' as 'white',
@@ -44,7 +36,7 @@ export class Spinner {
   }
 
   private _decorateText (text: string) {
-    return `${getLogPrefix()} ${text}  ${stateMapEmoji[this._state]}  \n`
+    return `${getLogPrefix()} ${text}  ${stateMap2Emoji[this._state]}\n`
   }
 
   public text (text: string) {
