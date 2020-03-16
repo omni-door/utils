@@ -1,6 +1,6 @@
 {
   "name": "@omni-door/tpl-utils",
-  "version": "0.1.0",
+  "version": "0.0.18",
   "description": "The utils of omni-door's templates",
   "main": "lib/index.js",
   "scripts": {
