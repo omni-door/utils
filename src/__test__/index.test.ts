@@ -26,7 +26,6 @@ describe('exec test', function () {
       'ls -la'
     ], () => {}, function (err) {
       expect(err).to.be.a('string');
-      expect(!!~err.indexOf('nonexist_command: command not found')).to.be.true;
       done();
     }, true)
   });
