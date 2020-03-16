@@ -253,7 +253,7 @@ describe('spinner test', function () {
         spinner.state('stop', 'stop message');
         spinner.state('warn', 'warn message');
         done();
-      }, 1200);
+      }, 600);
     }, 600);
   });
 });
