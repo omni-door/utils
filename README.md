@@ -122,16 +122,26 @@ The Utils for @omni-door/cli and other templates project.
   ```sh
   node -v # v10.13.0
   ```
+
   ```js
   import { node_version } from '@omni-door/tpl-utils';
 
+  // pass
   (async function () {
-    const res1 = await node_version('10'); // require node version >= 10
-    const res2 = await node_version('10.14'); // require node version >= 9.2
-    const res3 = await node_version('10.13.5'); // require node version >= 10.18.0
-    res1; // true
-    res2; // false
-    res1; // false
+    // require node version >= 10
+    await node_version('10');
+  })()
+
+  // can't through the check and will be exit with warn log
+  (async function () {
+    // require node version >= 10.14
+    await node_version('10.14');
+  })()
+
+  // can't through the check and will be exit with warn log
+  (async function () {
+    // require node version >= 10.13.1
+    await node_version('10.13.1');
   })()
   ```
 
@@ -145,7 +155,7 @@ The Utils for @omni-door/cli and other templates project.
   });
   ```
 
-  - getDependency
+- getDependency
   ```js
   import { getDependency } from '@omni-door/tpl-utils';
 

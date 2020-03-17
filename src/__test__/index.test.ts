@@ -161,17 +161,26 @@ describe('node_version test', function () {
 describe('output_file test', function () {
   it('type checking', function () {
     expect(output_file).to.be.a('function');
+  });
+
+  it('call output_file', function () {
     const file_path = path.resolve(__dirname, '../../test.js');
     const content = `const a = ${(Math.random() * 100).toFixed(5)};`;
     output_file({
       file_path: file_path,
-      file_content: content
+      file_content: content,
+      mode: 0o775
     });
     const ctx = fs.readFileSync(file_path, {
       encoding: 'utf-8'
     })
     expect(ctx === content).to.be.true;
-  });
+
+    output_file({
+      file_path: '',
+      file_content: ''
+    });
+  })
 });
 
 describe('getDependency test', function () {
