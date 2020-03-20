@@ -9,4 +9,4 @@ export type PLUGINSTAGE = 'new' | 'build' | 'release';
 export type MARKDOWN = 'mdx' | 'md';
 export type TESTFRAME = 'mocha' | 'jest' | '';
 export type SPINNER_STATE = 'start' | 'warn' | 'fail' | 'succeed' | 'info' | 'stop';
-export type HASH = boolean | 'hash' | 'chunkhash' | 'contenthash';
+export type HASH = 'hash' | 'chunkhash' | 'contenthash';

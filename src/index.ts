@@ -25,7 +25,7 @@ import node_version from './node_version';
 import output_file from './output_file';
 import spinner from './spinner';
 
-export { BUILD, PKJTOOL, PLUGINSTAGE, PROJECT_TYPE, STRATEGY, STYLE, LOGLEVEL, MARKDOWN, DEVSERVER, TESTFRAME } from './global.d';
+export { BUILD, PKJTOOL, PLUGINSTAGE, PROJECT_TYPE, STRATEGY, STYLE, LOGLEVEL, MARKDOWN, DEVSERVER, TESTFRAME, HASH } from './global.d';
 export { default as exec } from './exec';
 export { default as logPrefix,
   setLogo,
