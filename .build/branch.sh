@@ -1,7 +1,7 @@
 #! /bin/bash
 
 branch=$1
-name="🐸  [OMNI-DOOR/TPL-UTILS]"
+name="🐸  [OMNI-DOOR/UTILS]"
 
 checkBranch () {
   if [ -z "$branch" ]; then

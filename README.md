@@ -1,24 +1,24 @@
-# 🐸 @omni-door/tpl-utils
-The Utils for @omni-door/cli and other templates project.
+# 🐸 @omni-door/utils
+The Utils for omni-door's projects.
 
-[![NPM downloads](http://img.shields.io/npm/dm/%40omni-door%2Ftpl-utils.svg?style=flat-square)](https://www.npmjs.com/package/@omni-door/tpl-utils)
-[![npm version](https://badge.fury.io/js/%40omni-door%2Ftpl-utils.svg)](https://badge.fury.io/js/%40omni-door%2Ftpl-utils)
-[![Build Status](https://travis-ci.com/omni-door/tpl-utils.svg?branch=master)](https://travis-ci.com/omni-door/tpl-utils)
-[![codecov](https://codecov.io/gh/omni-door/tpl-utils/branch/master/graph/badge.svg)](https://codecov.io/gh/omni-door/tpl-utils)
-[![install size](https://packagephobia.now.sh/badge?p=%40omni-door%2Ftpl-utils)](https://packagephobia.now.sh/result?p=%40omni-door%2Ftpl-utils)
-[![license](http://img.shields.io/npm/l/%40omni-door%2Ftpl-utils.svg)](https://github.com/omni-door/tpl-utils/blob/master/LICENSE)
+[![NPM downloads](http://img.shields.io/npm/dm/%40omni-door%2Futils.svg?style=flat-square)](https://www.npmjs.com/package/@omni-door/utils)
+[![npm version](https://badge.fury.io/js/%40omni-door%2Futils.svg)](https://badge.fury.io/js/%40omni-door%2Futils)
+[![Build Status](https://travis-ci.com/omni-door/utils.svg?branch=master)](https://travis-ci.com/omni-door/utils)
+[![codecov](https://codecov.io/gh/omni-door/utils/branch/master/graph/badge.svg)](https://codecov.io/gh/omni-door/utils)
+[![install size](https://packagephobia.now.sh/badge?p=%40omni-door%2Futils)](https://packagephobia.now.sh/result?p=%40omni-door%2Futils)
+[![license](http://img.shields.io/npm/l/%40omni-door%2Futils.svg)](https://github.com/omni-door/utils/blob/master/LICENSE)
 
 ## Install
-* Clone the repo: `git clone git@github.com:omni-door/tpl-utils.git`
+* Clone the repo: `git clone git@github.com:omni-door/utils.git`
 
-* Install with [npm](https://www.npmjs.com/package/@omni-door/tpl-utils): `npm install @omni-door/tpl-utils`
+* Install with [npm](https://www.npmjs.com/package/@omni-door/utils): `npm install @omni-door/utils`
 
-* Install with [Yarn](https://yarnpkg.com/en/package/@omni-door/tpl-utils): `yarn add @omni-door/tpl-utils`
+* Install with [Yarn](https://yarnpkg.com/en/package/@omni-door/utils): `yarn add @omni-door/utils`
 
 ## Methods
 - exec
   ```js
-  import { exec } from '@omni-door/tpl-utils';
+  import { exec } from '@omni-door/utils';
 
   exec(
     ['npm test', 'ls && pwd', 'npm run build'],
@@ -29,91 +29,91 @@ The Utils for @omni-door/cli and other templates project.
 
 - logPrefix
   ```js
-  import { logPrefix } from '@omni-door/tpl-utils';
+  import { logPrefix } from '@omni-door/utils';
 
   logPrefix(); // 😊  [OMNI-DOOR]:
   ```
 
 - setLogo
   ```js
-  import { setLogo } from '@omni-door/tpl-utils';
+  import { setLogo } from '@omni-door/utils';
 
   setLogo('❤️️️️  ');
   ```
 
 - setBrand
   ```js
-  import { setBrand } from '@omni-door/tpl-utils';
+  import { setBrand } from '@omni-door/utils';
 
   setBrand('ODYSSEY');
   ```
 
 - getLogo
   ```js
-  import { getLogo } from '@omni-door/tpl-utils';
+  import { getLogo } from '@omni-door/utils';
 
   getLogo(); // ❤️️  
   ```
 
 - getBrand
   ```js
-  import { getBrand } from '@omni-door/tpl-utils';
+  import { getBrand } from '@omni-door/utils';
 
   getBrand(); // ODYSSEY
   ```
 
 - logDetail
   ```js
-  import { logDetail } from '@omni-door/tpl-utils';
+  import { logDetail } from '@omni-door/utils';
 
   logDetail('this is a message!'); // ❤️️  [ODYSSEY]: this is a message! (gray)
   ```
 
 - logEmph
   ```js
-  import { logEmph } from '@omni-door/tpl-utils';
+  import { logEmph } from '@omni-door/utils';
 
   logEmph('this is a message!'); // ❤️️  [ODYSSEY]: this is a message! (cyan)
   ```
 
 - logErr
   ```js
-  import { logErr } from '@omni-door/tpl-utils';
+  import { logErr } from '@omni-door/utils';
 
   logErr('this is a message!'); // ❤️️  [ODYSSEY]: this is a message! (red)
   ```
 
 - logInfo
   ```js
-  import { logInfo } from '@omni-door/tpl-utils';
+  import { logInfo } from '@omni-door/utils';
 
   logInfo('this is a message!'); // ❤️️  [ODYSSEY]: this is a message! (white)
   ```
 
 - logSuc
   ```js
-  import { logSuc } from '@omni-door/tpl-utils';
+  import { logSuc } from '@omni-door/utils';
 
   logSuc('this is a message!'); // ❤️️  [ODYSSEY]: this is a message! (green)
   ```
 
 - logWarn
   ```js
-  import { logWarn } from '@omni-door/tpl-utils';
+  import { logWarn } from '@omni-door/utils';
 
   logWarn('this is a message!'); // ❤️️  [ODYSSEY]: this is a message! (yellow)
   ```
 
 - underline
   ```js
-  import { underline } from '@omni-door/tpl-utils';
+  import { underline } from '@omni-door/utils';
 
   logWarn(underline('this is a message!')); // ❤️️  [ODYSSEY]: this is a message! (has underline)
   ```
 
 - italic
   ```js
-  import { italic } from '@omni-door/tpl-utils';
+  import { italic } from '@omni-door/utils';
 
   logDetail(italic('this is a message!')); // ❤️️  [ODYSSEY]: this is a message! (italic font)
   ```
@@ -124,7 +124,7 @@ The Utils for @omni-door/cli and other templates project.
   ```
 
   ```js
-  import { node_version } from '@omni-door/tpl-utils';
+  import { node_version } from '@omni-door/utils';
 
   // pass
   (async function () {
@@ -147,7 +147,7 @@ The Utils for @omni-door/cli and other templates project.
 
 - output_file
   ```js
-  import { output_file } from '@omni-door/tpl-utils';
+  import { output_file } from '@omni-door/utils';
 
   output_file({
     file_path: file_path('src/test.txt'),
@@ -157,7 +157,7 @@ The Utils for @omni-door/cli and other templates project.
 
 - getDependency
   ```js
-  import { getDependency } from '@omni-door/tpl-utils';
+  import { getDependency } from '@omni-door/utils';
 
   const dependency = getDependency('latest', {
     'core-js': '3.6.4',
@@ -179,21 +179,21 @@ The Utils for @omni-door/cli and other templates project.
 
 - arr2str
   ```js
-  import { arr2str } from '@omni-door/tpl-utils';
+  import { arr2str } from '@omni-door/utils';
 
   arr2str([1, 2, 3]); // "1 2 3"
   ```
 
 - intersection
   ```js
-  import { intersection } from '@omni-door/tpl-utils';
+  import { intersection } from '@omni-door/utils';
 
   depArr = [ ...intersection(depArr, depArr.filter(v => v !== 1)) ]
   ```
 
 - spinner
   ```js
-  import { spinner } from '@omni-door/tpl-utils';
+  import { spinner } from '@omni-door/utils';
 
   spinner.state('start', 'begin!');
   spinner.text('new text');

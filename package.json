@@ -1,7 +1,7 @@
 {
-  "name": "@omni-door/tpl-utils",
-  "version": "0.0.21",
-  "description": "The utils of omni-door's templates",
+  "name": "@omni-door/utils",
+  "version": "0.1.0",
+  "description": "The utils of omni-door's projects",
   "main": "lib/index.js",
   "scripts": {
     "test": "nyc mocha --opts mocha.opts",
@@ -17,7 +17,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/omni-door/tpl-utils.git"
+    "url": "git+https://github.com/omni-door/utils.git"
   },
   "keywords": [
     "omni",
@@ -28,9 +28,9 @@
   "author": "bobby.li",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/omni-door/tpl-utils/issues"
+    "url": "https://github.com/omni-door/utils/issues"
   },
-  "homepage": "https://github.com/omni-door/tpl-utils#readme",
+  "homepage": "https://github.com/omni-door/utils#readme",
   "dependencies": {
     "@types/signale": "^1.2.1",
     "chalk": "^3.0.0",

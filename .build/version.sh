@@ -1,7 +1,7 @@
 #! /bin/bash
 
 iterate=$1
-name="🐸  [OMNI-DOOR/TPL-UTILS]"
+name="🐸  [OMNI-DOOR/UTILS]"
 dot="."
 
 updateVersion () {

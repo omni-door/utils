@@ -1,6 +1,6 @@
 #! /bin/bash
 
-name="🐸  [OMNI-DOOR/TPL-UTILS]"
+name="🐸  [OMNI-DOOR/UTILS]"
 
 if [ $? -eq 0 ]
 then
