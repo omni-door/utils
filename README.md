@@ -201,3 +201,27 @@ The Utils for omni-door's projects.
   spinner.prefix('dot8');
   spinner.state('succeed', 'succeed!');
   ```
+
+- generate_tpl
+  ```js
+  import { generate_tpl } from '@omni-door/utils';
+
+  const tpls = {
+    tplA: '`hello, ${include("tplB")}`',
+    tplB: '`world`'
+  };
+  const envs = {
+    ts: false,
+    project_name: 'myProject',
+    project_type: 'toolkit',
+    style: 'css',
+    strategy: 'stable',
+    test: true,
+    eslint: true,
+    prettier: true,
+    commitlint: true,
+    stylelint: true,
+  };
+  const output_tpl = generate_tpl(tpls, 'tplA');
+  const tpl = output_tpl(envs);
+  ```

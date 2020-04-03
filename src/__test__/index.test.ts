@@ -14,6 +14,7 @@ import {
 import node_version from '../node_version';
 import output_file from '../output_file';
 import spinner from '../spinner';
+import generate_tpl from '../generate_tpl';
 
 describe('exec test', function () {
   it('type checking', function () {
@@ -263,5 +264,33 @@ describe('spinner test', function () {
         done();
       }, 600);
     }, 600);
+  });
+});
+
+describe('generate_tpl test', function () {
+  const tpls = {
+    tplA: '`hello, ${include("tplB")}`',
+    tplB: '`world`'
+  };
+  const envs = {
+    ts: false,
+    project_name: 'test123',
+    project_type: 'toolkit' as 'toolkit',
+    style: 'css' as 'css',
+    strategy: 'stable' as 'stable',
+    test: true,
+    eslint: true,
+    prettier: true,
+    commitlint: true,
+    stylelint: true,
+  };
+  const output_tpl = generate_tpl(tpls, 'tplA');
+  const tpl = output_tpl(envs);
+
+  it('type checking', function () {
+    expect(generate_tpl).to.be.a('function');
+    expect(output_tpl).to.be.a('function');
+    expect(tpl).to.be.a('string');
+    expect(tpl).to.be.equal('hello, world');
   });
 });
