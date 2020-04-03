@@ -23,9 +23,8 @@ export default function (
 ) {
   return function (envs: ENV) {
     const context = {
-      ...(params || {}),
+      ...(envs || {}),
       use_strict: `'use strict';`,
-      project_name: envs.project_name,
       include: function (name: string) {
         if (!name) return '';
         const tplFn: TplFn | undefined = tpls[name] as any;
@@ -68,8 +67,8 @@ export default function (
         return tplFn ? tplFn() : '';
       },
       alter_strategy: function (strategy: STRATEGY, tplNames: {
-        stable: string;
-        latest: string;
+        'stable': string;
+        'latest': string;
       }) {
         if (!strategy || !tplNames) return '';
         const realStrategy = envs['strategy'];
@@ -77,7 +76,8 @@ export default function (
         const tplName = tplNames[realStrategy];
         const tplFn: TplFn | undefined = tpls[tplName] as any;
         return tplFn ? tplFn() : '';
-      }
+      },
+      ...(params || {})
     };
   
     Object.keys(tpls).forEach(tplName => {
