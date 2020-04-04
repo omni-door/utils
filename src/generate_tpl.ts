@@ -16,6 +16,13 @@ type ENV = {
 };
 type AlterEnv = Exclude<keyof ENV, 'project_name' | 'project_type' | 'style' | 'strategy'>;
 
+function type_of (ele: any) {
+  if (typeof ele !== 'object') return typeof ele;
+  if (!ele) return 'null'; // fix typeof null === 'object' problem
+  const len = Object.prototype.toString.call(ele).length - 1;
+  return Object.prototype.toString.call(ele).slice(8, len).toLowerCase();
+}
+
 export default function (
   tpls: { [tplName: string]: string },
   tplName: string,
@@ -41,42 +48,46 @@ export default function (
         const tplFn: TplFn | undefined = tpls[tplName] as any;
         return tplFn ? tplFn() : '';
       },
-      alter_project_type: function (type: PROJECT_TYPE, tplNames: {
-        'spa-react': string;
-        'component-library-react': string;
-        'toolkit': string;
+      alter_project_type: function (tplNames: {
+        'spa-react'?: string;
+        'component-library-react'?: string;
+        'toolkit'?: string;
       }) {
-        if (!type || !tplNames) return '';
+        if (type_of(tplNames) !== 'object') return '';
         const realType = envs['project_type'];
         if (!realType) return '';
         const tplName = tplNames[realType];
+        if (!tplName) return '';
         const tplFn: TplFn | undefined = tpls[tplName] as any;
         return tplFn ? tplFn() : '';
       },
-      alter_style: function (style: STYLE, tplNames: {
-        css: string;
-        less: string;
-        scss: string;
-        all: string
+      alter_style: function (tplNames: {
+        css?: string;
+        less?: string;
+        scss?: string;
+        all?: string
       }) {
-        if (!style || !tplNames) return '';
+        if (type_of(tplNames) !== 'object') return '';
         const realStyle = envs['style'];
         if (!realStyle) return '';
         const tplName = tplNames[realStyle];
+        if (!tplName) return '';
         const tplFn: TplFn | undefined = tpls[tplName] as any;
         return tplFn ? tplFn() : '';
       },
-      alter_strategy: function (strategy: STRATEGY, tplNames: {
-        'stable': string;
-        'latest': string;
+      alter_strategy: function (tplNames: {
+        stable?: string;
+        latest?: string;
       }) {
-        if (!strategy || !tplNames) return '';
+        if (type_of(tplNames) !== 'object') return '';
         const realStrategy = envs['strategy'];
         if (!realStrategy) return '';
         const tplName = tplNames[realStrategy];
+        if (!tplName) return '';
         const tplFn: TplFn | undefined = tpls[tplName] as any;
         return tplFn ? tplFn() : '';
       },
+      type_of,
       ...(params || {})
     };
   
