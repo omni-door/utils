@@ -13,6 +13,7 @@ type ENV = {
   prettier: boolean;
   commitlint: boolean;
   stylelint: boolean;
+  configFileName: string;
 };
 type AlterEnv = Exclude<keyof ENV, 'project_name' | 'project_type' | 'style' | 'strategy'>;
 
