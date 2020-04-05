@@ -305,10 +305,9 @@ describe('tpl_engine_new test', function () {
     ts: false,
     project_type: 'spa-react' as 'spa-react',
     componentName: 'omni-spa',
-    stylesheet: 'css' as 'css',
+    style: 'css' as 'css',
     test: true,
-    md: 'md' as 'md',
-    newPath: '../../'
+    md: 'md' as 'md'
   };
   const output_tpl = tpl_engine_new(tpls, 'tplA');
   const tpl = output_tpl(envs);

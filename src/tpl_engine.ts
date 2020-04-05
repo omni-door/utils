@@ -6,13 +6,12 @@ type TplFn = () => string;
 type ENV_NEW = {
   componentName: string;
   project_type: PROJECT_TYPE;
-  stylesheet: STYLE;
+  style: STYLE;
   ts: boolean;
   test: boolean;
   md: MARKDOWN;
-  newPath: string;
 };
-type AlterEnv_NEW = Exclude<keyof ENV_NEW, 'componentName' | 'project_type' | 'stylesheet' | 'md' | 'newPath'>;
+type AlterEnv_NEW = Exclude<keyof ENV_NEW, 'componentName' | 'project_type' | 'style' | 'md' | 'newPath'>;
 
 function type_of (ele: any) {
   if (typeof ele !== 'object') return typeof ele;
@@ -66,7 +65,7 @@ export function tpl_engine_new (
         all?: string
       }) {
         if (type_of(tplNames) !== 'object') return '';
-        const realStyle = envs['stylesheet'];
+        const realStyle = envs['style'];
         if (!realStyle) return '';
         const tplName = tplNames[realStyle];
         if (!tplName) return '';
