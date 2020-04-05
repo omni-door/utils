@@ -24,7 +24,7 @@ import {
 import node_version from './node_version';
 import output_file from './output_file';
 import spinner from './spinner';
-import generate_tpl from './generate_tpl';
+import { tpl_engine_init, tpl_engine_new } from './tpl_engine';
 
 export { BUILD, PKJTOOL, PLUGINSTAGE, PROJECT_TYPE, STRATEGY, STYLE, LOGLEVEL, MARKDOWN, DEVSERVER, TESTFRAME, HASH } from './global.d';
 export { default as exec } from './exec';
@@ -53,7 +53,7 @@ export {
 export { default as node_version } from './node_version';
 export { default as output_file } from './output_file';
 export { default as spinner } from './spinner';
-export { default as generate_tpl } from './generate_tpl';
+export { tpl_engine_init, tpl_engine_new } from './tpl_engine';
 
 export default {
   exec,
@@ -77,5 +77,6 @@ export default {
   arr2str,
   intersection,
   spinner,
-  generate_tpl
+  tpl_engine_init,
+  tpl_engine_new
 };

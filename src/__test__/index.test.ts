@@ -14,7 +14,7 @@ import {
 import node_version from '../node_version';
 import output_file from '../output_file';
 import spinner from '../spinner';
-import generate_tpl from '../generate_tpl';
+import { tpl_engine_init, tpl_engine_new } from '../tpl_engine';
 
 describe('exec test', function () {
   it('type checking', function () {
@@ -267,7 +267,7 @@ describe('spinner test', function () {
   });
 });
 
-describe('generate_tpl test', function () {
+describe('tpl_engine_init test', function () {
   const tpls = {
     tplA: '`hello, ${include("tplB")}`',
     tplB: '`world`'
@@ -285,11 +285,36 @@ describe('generate_tpl test', function () {
     stylelint: true,
     configFileName: 'test.config.js'
   };
-  const output_tpl = generate_tpl(tpls, 'tplA');
+  const output_tpl = tpl_engine_init(tpls, 'tplA');
   const tpl = output_tpl(envs);
 
   it('type checking', function () {
-    expect(generate_tpl).to.be.a('function');
+    expect(tpl_engine_init).to.be.a('function');
+    expect(output_tpl).to.be.a('function');
+    expect(tpl).to.be.a('string');
+    expect(tpl).to.be.equal('hello, world');
+  });
+});
+
+describe('tpl_engine_new test', function () {
+  const tpls = {
+    tplA: '`hello, ${include("tplB")}`',
+    tplB: '`world`'
+  };
+  const envs = {
+    ts: false,
+    project_type: 'spa-react' as 'spa-react',
+    componentName: 'omni-spa',
+    stylesheet: 'css' as 'css',
+    test: true,
+    md: 'md' as 'md',
+    newPath: '../../'
+  };
+  const output_tpl = tpl_engine_new(tpls, 'tplA');
+  const tpl = output_tpl(envs);
+
+  it('type checking', function () {
+    expect(tpl_engine_new).to.be.a('function');
     expect(output_tpl).to.be.a('function');
     expect(tpl).to.be.a('string');
     expect(tpl).to.be.equal('hello, world');

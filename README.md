@@ -202,9 +202,9 @@ The Utils for omni-door's projects.
   spinner.state('succeed', 'succeed!');
   ```
 
-- generate_tpl
+- tpl_engine_init
   ```js
-  import { generate_tpl } from '@omni-door/utils';
+  import { tpl_engine_init } from '@omni-door/utils';
 
   const tpls = {
     tplA: '`hello, ${include("tplB")}`',
@@ -220,8 +220,29 @@ The Utils for omni-door's projects.
     eslint: true,
     prettier: true,
     commitlint: true,
-    stylelint: true,
+    stylelint: true
   };
-  const output_tpl = generate_tpl(tpls, 'tplA');
+  const output_tpl = tpl_engine_init(tpls, 'tplA');
+  const tpl = output_tpl(envs);
+  ```
+
+- tpl_engine_new
+  ```js
+  import { tpl_engine_new } from '@omni-door/utils';
+
+  const tpls = {
+    tplA: '`hello, ${include("tplB")}`',
+    tplB: '`world`'
+  };
+  const envs = {
+    ts: false,
+    project_type: 'spa-react' as 'spa-react',
+    componentName: 'omni-spa',
+    stylesheet: 'css' as 'css',
+    test: true,
+    md: 'md' as 'md',
+    newPath: '../../'
+  };
+  const output_tpl = tpl_engine_new(tpls, 'tplA');
   const tpl = output_tpl(envs);
   ```
