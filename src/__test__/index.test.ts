@@ -274,7 +274,7 @@ describe('generate_tpl test', function () {
   };
   const envs = {
     ts: false,
-    project_name: 'test123',
+    project_name: 'test_project',
     project_type: 'toolkit' as 'toolkit',
     style: 'css' as 'css',
     strategy: 'stable' as 'stable',
@@ -283,6 +283,7 @@ describe('generate_tpl test', function () {
     prettier: true,
     commitlint: true,
     stylelint: true,
+    configFileName: 'test.config.js'
   };
   const output_tpl = generate_tpl(tpls, 'tplA');
   const tpl = output_tpl(envs);
