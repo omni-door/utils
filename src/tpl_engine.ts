@@ -5,13 +5,12 @@ type TplFn = () => string;
 
 type ENV_NEW = {
   componentName: string;
-  project_type: PROJECT_TYPE;
   style: STYLE;
   ts: boolean;
   test: boolean;
   md: MARKDOWN;
 };
-type AlterEnv_NEW = Exclude<keyof ENV_NEW, 'componentName' | 'project_type' | 'style' | 'md' | 'newPath'>;
+type AlterEnv_NEW = Exclude<keyof ENV_NEW, 'componentName' | 'style' | 'md' | 'newPath'>;
 
 function type_of (ele: any) {
   if (typeof ele !== 'object') return typeof ele;
@@ -42,19 +41,6 @@ export function tpl_engine_new (
           if (alter !== value) return '';
         } else if (!alter) return '';
 
-        const tplFn: TplFn | undefined = tpls[tplName] as any;
-        return tplFn ? tplFn() : '';
-      },
-      alter_project_type: function (tplNames: {
-        'spa-react'?: string;
-        'component-library-react'?: string;
-        'toolkit'?: string;
-      }) {
-        if (type_of(tplNames) !== 'object') return '';
-        const realType = envs['project_type'];
-        if (!realType) return '';
-        const tplName = tplNames[realType];
-        if (!tplName) return '';
         const tplFn: TplFn | undefined = tpls[tplName] as any;
         return tplFn ? tplFn() : '';
       },
