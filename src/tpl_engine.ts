@@ -129,7 +129,7 @@ export function tpl_engine_init (
         const tplFn: TplFn | undefined = tpls[tplName] as any;
         return tplFn ? tplFn() : '';
       },
-      c: function (tplNames: {
+      alter_style: function (tplNames: {
         css?: string;
         less?: string;
         scss?: string;
