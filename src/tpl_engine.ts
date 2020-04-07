@@ -22,7 +22,7 @@ function type_of (ele: any) {
 export function tpl_engine_new (
   tpls: { [tplName: string]: string },
   tplName: string,
-  params?: { [param: string]: string }
+  params?: { [param: string]: string | number | boolean }
 ) {
   return function (envs: ENV_NEW) {
     const context = {
@@ -94,7 +94,7 @@ type AlterEnv_INIT = Exclude<keyof ENV_INIT, 'project_name' | 'project_type' | '
 export function tpl_engine_init (
   tpls: { [tplName: string]: string },
   tplName: string,
-  params?: { [param: string]: string }
+  params?: { [param: string]: string | number | boolean }
 ) {
   return function (envs: ENV_INIT) {
     const context = {
@@ -129,7 +129,7 @@ export function tpl_engine_init (
         const tplFn: TplFn | undefined = tpls[tplName] as any;
         return tplFn ? tplFn() : '';
       },
-      alter_style: function (tplNames: {
+      c: function (tplNames: {
         css?: string;
         less?: string;
         scss?: string;
