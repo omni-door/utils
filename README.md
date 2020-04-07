@@ -220,7 +220,8 @@ The Utils for omni-door's projects.
     eslint: true,
     prettier: true,
     commitlint: true,
-    stylelint: true
+    stylelint: true,
+    configFileName: 'omni.config.js'
   };
   const output_tpl = tpl_engine_init(tpls, 'tplA');
   const tpl = output_tpl(envs);
