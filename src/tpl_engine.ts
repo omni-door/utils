@@ -73,7 +73,7 @@ export function tpl_engine_new (
   
     const tplFn: TplFn = tpls[tplName] as any;
     return tplFn();
-  }
+  };
 }
 
 type ENV_INIT = {
@@ -170,5 +170,5 @@ export function tpl_engine_init (
   
     const tplFn: TplFn = tpls[tplName] as any;
     return tplFn();
-  }
+  };
 }

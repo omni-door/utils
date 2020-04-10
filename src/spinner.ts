@@ -36,7 +36,7 @@ export class Spinner {
   }
 
   private _decorateText (text: string) {
-    return `${getLogPrefix()} ${text}  ${stateMap2Emoji[this._state]}\n`
+    return `${getLogPrefix()} ${text}  ${stateMap2Emoji[this._state]}\n`;
   }
 
   public text (text: string) {

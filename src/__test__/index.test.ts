@@ -15,6 +15,7 @@ import node_version from '../node_version';
 import output_file from '../output_file';
 import spinner from '../spinner';
 import { tpl_engine_init, tpl_engine_new } from '../tpl_engine';
+import { default as require_cwd } from '../require_cwd';
 
 describe('exec test', function () {
   it('type checking', function () {
@@ -28,7 +29,7 @@ describe('exec test', function () {
     ], () => {}, function (err) {
       expect(err).to.be.a('string');
       done();
-    }, true)
+    }, true);
   });
 
   it('exec correct commands', function (done) {
@@ -40,7 +41,7 @@ describe('exec test', function () {
       expect(res).to.have.lengthOf(2);
       expect(res[0]).to.be.a('string');
       done();
-    }, () => {}, true)
+    }, () => {}, true);
   });
 });
 
@@ -174,14 +175,14 @@ describe('output_file test', function () {
     });
     const ctx = fs.readFileSync(file_path, {
       encoding: 'utf-8'
-    })
+    });
     expect(ctx === content).to.be.true;
 
     output_file({
       file_path: '',
       file_content: ''
     });
-  })
+  });
 });
 
 describe('getDependency test', function () {
@@ -218,7 +219,7 @@ describe('arr2str test', function () {
   it('call arr2str', function () {
     const str = arr2str(['test', 'message']);
     expect(str).to.be.a('string');
-    expect(str).to.be.equal('test message')
+    expect(str).to.be.equal('test message');
   });
 });
 
@@ -317,5 +318,16 @@ describe('tpl_engine_new test', function () {
     expect(output_tpl).to.be.a('function');
     expect(tpl).to.be.a('string');
     expect(tpl).to.be.equal('hello, world');
+  });
+});
+
+describe('require_cwd test', function () {
+  it('type checking', function () {
+    expect(require_cwd).to.be.a('function');
+  });
+
+  it('call require_cwd', function () {
+    const chalk = require_cwd('chalk');
+    expect(chalk).to.be.a('function');
   });
 });
