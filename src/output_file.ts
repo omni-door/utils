@@ -7,7 +7,7 @@ export function output_file ({
   mode = 0o777
 }: {
   file_path: string;
-  file_content: string | false;
+  file_content: string | void | false;
   mode?: number;
 }) {
   try {
