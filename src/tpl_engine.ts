@@ -3,7 +3,7 @@ import { STRATEGY, PROJECT_TYPE, STYLE, MARKDOWN } from './global.d';
 
 type TplFn = () => string;
 
-interface ENV_NEW {
+export interface ENV_NEW {
   componentName: string;
   style: STYLE;
   ts: boolean;
@@ -77,7 +77,7 @@ export function tpl_engine_new (
   };
 }
 
-interface ENV_INIT {
+export interface ENV_INIT {
   project_name: string;
   project_type: PROJECT_TYPE;
   style: STYLE;
