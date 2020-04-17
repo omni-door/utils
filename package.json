@@ -1,6 +1,6 @@
 {
   "name": "@omni-door/utils",
-  "version": "0.1.10",
+  "version": "0.1.11",
   "description": "The utils of omni-door's projects",
   "main": "lib/index.js",
   "scripts": {
