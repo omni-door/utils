@@ -3,13 +3,14 @@ import { STRATEGY, PROJECT_TYPE, STYLE, MARKDOWN } from './global.d';
 
 type TplFn = () => string;
 
-type ENV_NEW = {
+interface ENV_NEW {
   componentName: string;
   style: STYLE;
   ts: boolean;
   test: boolean;
-  md: MARKDOWN;
-};
+  md?: MARKDOWN;
+  [propsName: string]: string | boolean | number | void;
+}
 type AlterEnv_NEW = Exclude<keyof ENV_NEW, 'componentName' | 'style' | 'md' | 'newPath'>;
 
 function type_of (ele: any) {
@@ -76,7 +77,7 @@ export function tpl_engine_new (
   };
 }
 
-type ENV_INIT = {
+interface ENV_INIT {
   project_name: string;
   project_type: PROJECT_TYPE;
   style: STYLE;
@@ -88,7 +89,8 @@ type ENV_INIT = {
   commitlint: boolean;
   stylelint: boolean;
   configFileName: string;
-};
+  [propsName: string]: string | boolean | number | void;
+}
 type AlterEnv_INIT = Exclude<keyof ENV_INIT, 'project_name' | 'project_type' | 'style' | 'strategy'>;
 
 export function tpl_engine_init (
