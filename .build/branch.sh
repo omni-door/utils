@@ -1,7 +1,7 @@
 #! /bin/bash
 
 branch=$1
-name="🐸  [OMNI-DOOR/UTILS]"
+name="🐸  [OMNI-DOOR/Utils]"
 
 checkBranch () {
   if [ -z "$branch" ]; then
@@ -17,7 +17,7 @@ checkBranch () {
     exit 1
   fi
 
-  echo -e "\033[36m \n ${name}: current branch is ${branch}\n \033[0m"
+  echo -e "\033[36m \n ${name}: The current branch is ${branch}\n \033[0m"
 }
 
 checkBranch
