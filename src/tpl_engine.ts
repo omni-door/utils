@@ -5,9 +5,9 @@ type TplFn = () => string;
 
 export interface ENV_NEW {
   componentName: string;
-  style: STYLE;
-  ts: boolean;
-  test: boolean;
+  style?: STYLE;
+  ts?: boolean;
+  test?: boolean;
   md?: MARKDOWN;
   [propsName: string]: string | boolean | number | void;
 }
@@ -79,16 +79,16 @@ export function tpl_engine_new (
 
 export interface ENV_INIT {
   project_name: string;
-  project_type: PROJECT_TYPE;
-  style: STYLE;
-  strategy: STRATEGY;
-  ts: boolean;
-  test: boolean;
-  eslint: boolean;
-  prettier: boolean;
-  commitlint: boolean;
-  stylelint: boolean;
-  configFileName: string;
+  project_type?: PROJECT_TYPE;
+  style?: STYLE;
+  strategy?: STRATEGY;
+  ts?: boolean;
+  test?: boolean;
+  eslint?: boolean;
+  prettier?: boolean;
+  commitlint?: boolean;
+  stylelint?: boolean;
+  configFileName?: string;
   [propsName: string]: string | boolean | number | void;
 }
 type AlterEnv_INIT = Exclude<keyof ENV_INIT, 'project_name' | 'project_type' | 'style' | 'strategy'>;
