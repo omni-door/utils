@@ -147,10 +147,11 @@ The Utils for omni-door's projects.
 
 - output_file
   ```js
+  import path from 'path';
   import { output_file } from '@omni-door/utils';
 
   output_file({
-    file_path: file_path('src/test.txt'),
+    file_path: path.resolve(__dirname, 'src/test.txt'),
     file_content: 'I am a test content!'
   });
   ```
