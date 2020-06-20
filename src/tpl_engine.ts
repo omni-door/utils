@@ -26,12 +26,13 @@ export function tpl_engine_new (
   params?: { [param: string]: string | number | boolean }
 ) {
   return function (envs: ENV_NEW) {
+    const newTpls: { [tplName: string]: string } = {};
     const context = {
       ...(envs || {}),
       use_strict: `'use strict';`,
       include: function (name: string) {
         if (!name) return '';
-        const tplFn: TplFn | undefined = tpls[name] as any;
+        const tplFn: TplFn | undefined = newTpls[name] as any;
         return tplFn ? tplFn() : '';
       },
       alter: function (env: AlterEnv_NEW, tplName: string, value?: boolean) {
@@ -42,7 +43,7 @@ export function tpl_engine_new (
           if (alter !== value) return '';
         } else if (!alter) return '';
 
-        const tplFn: TplFn | undefined = tpls[tplName] as any;
+        const tplFn: TplFn | undefined = newTpls[tplName] as any;
         return tplFn ? tplFn() : '';
       },
       alter_style: function (tplNames: {
@@ -56,7 +57,7 @@ export function tpl_engine_new (
         if (!realStyle) return '';
         const tplName = tplNames[realStyle];
         if (!tplName) return '';
-        const tplFn: TplFn | undefined = tpls[tplName] as any;
+        const tplFn: TplFn | undefined = newTpls[tplName] as any;
         return tplFn ? tplFn() : '';
       },
       type_of,
@@ -65,14 +66,14 @@ export function tpl_engine_new (
   
     Object.keys(tpls).forEach(tplName => {
       const tpl = tpls[tplName];
-      tpls[tplName] = vm.runInNewContext(`
+      newTpls[tplName] = vm.runInNewContext(`
         (function () {
           return ${tpl};
         })
       `, context);
     });
   
-    const tplFn: TplFn = tpls[tplName] as any;
+    const tplFn: TplFn = newTpls[tplName] as any;
     return tplFn();
   };
 }
@@ -99,12 +100,13 @@ export function tpl_engine_init (
   params?: { [param: string]: string | number | boolean }
 ) {
   return function (envs: ENV_INIT) {
+    const newTpls: { [tplName: string]: string } = {};
     const context = {
       ...(envs || {}),
       use_strict: `'use strict';`,
       include: function (name: string) {
         if (!name) return '';
-        const tplFn: TplFn | undefined = tpls[name] as any;
+        const tplFn: TplFn | undefined = newTpls[name] as any;
         return tplFn ? tplFn() : '';
       },
       alter: function (env: AlterEnv_INIT, tplName: string, value?: boolean) {
@@ -115,7 +117,7 @@ export function tpl_engine_init (
           if (alter !== value) return '';
         } else if (!alter) return '';
 
-        const tplFn: TplFn | undefined = tpls[tplName] as any;
+        const tplFn: TplFn | undefined = newTpls[tplName] as any;
         return tplFn ? tplFn() : '';
       },
       alter_project_type: function (tplNames: {
@@ -128,7 +130,7 @@ export function tpl_engine_init (
         if (!realType) return '';
         const tplName = tplNames[realType];
         if (!tplName) return '';
-        const tplFn: TplFn | undefined = tpls[tplName] as any;
+        const tplFn: TplFn | undefined = newTpls[tplName] as any;
         return tplFn ? tplFn() : '';
       },
       alter_style: function (tplNames: {
@@ -142,7 +144,7 @@ export function tpl_engine_init (
         if (!realStyle) return '';
         const tplName = tplNames[realStyle];
         if (!tplName) return '';
-        const tplFn: TplFn | undefined = tpls[tplName] as any;
+        const tplFn: TplFn | undefined = newTpls[tplName] as any;
         return tplFn ? tplFn() : '';
       },
       alter_strategy: function (tplNames: {
@@ -154,23 +156,24 @@ export function tpl_engine_init (
         if (!realStrategy) return '';
         const tplName = tplNames[realStrategy];
         if (!tplName) return '';
-        const tplFn: TplFn | undefined = tpls[tplName] as any;
+        const tplFn: TplFn | undefined = newTpls[tplName] as any;
         return tplFn ? tplFn() : '';
       },
       type_of,
       ...(params || {})
     };
   
+
     Object.keys(tpls).forEach(tplName => {
       const tpl = tpls[tplName];
-      tpls[tplName] = vm.runInNewContext(`
+      newTpls[tplName] = vm.runInNewContext(`
         (function () {
           return ${tpl};
         })
       `, context);
     });
   
-    const tplFn: TplFn = tpls[tplName] as any;
+    const tplFn: TplFn = newTpls[tplName] as any;
     return tplFn();
   };
 }
