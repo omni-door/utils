@@ -38,7 +38,8 @@ export function logSuc (msg: string) {
 
 export function logTime (msg: string, isEnd?: boolean) {
   const method = isEnd ? 'timeEnd' : 'time';
-  return signale[method](chalk.gray(`${getLogo()}  ${msg}`));
+  const newSignale = signale.scope(getBrand());
+  return newSignale[method](chalk.gray(`${getLogo()}  ${msg}`));
 }
 
 export function underline (str: string) {
