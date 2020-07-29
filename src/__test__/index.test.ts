@@ -329,5 +329,8 @@ describe('require_cwd test', function () {
   it('call require_cwd', function () {
     const chalk = require_cwd('chalk');
     expect(chalk).to.be.a('function');
+
+    const pkj = require_cwd('package.json');
+    expect(pkj).to.be.a('object');
   });
 });
