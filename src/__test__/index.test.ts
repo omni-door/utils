@@ -326,11 +326,19 @@ describe('require_cwd test', function () {
     expect(require_cwd).to.be.a('function');
   });
 
-  it('call require_cwd', function () {
+  it('call require_cwd - node_modules/chalk', function () {
     const chalk = require_cwd('chalk');
     expect(chalk).to.be.a('function');
+  });
 
+  it('call require_cwd - package.json', function () {
     const pkj = require_cwd('package.json');
     expect(pkj).to.be.a('object');
+    expect(pkj.name).to.be.equal('@omni-door/utils');
+  });
+
+  it('call require_cwd - unknown', function () {
+    const unknown = require_cwd('some_unknown_package');
+    expect(unknown).to.be.equal(null);
   });
 });
