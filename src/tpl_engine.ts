@@ -122,7 +122,11 @@ export function tpl_engine_init (
       },
       alter_project_type: function (tplNames: {
         'spa-react'?: string;
-        'component-library-react'?: string;
+        'spa-vue'?: string;
+        'ssr-react'?: string;
+        'ssr-vue'?: string;
+        'component-react'?: string;
+        'component-vue'?: string;
         'toolkit'?: string;
       }) {
         if (type_of(tplNames) !== 'object') return '';
