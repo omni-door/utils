@@ -1,5 +1,5 @@
-export type BUILD = 'webpack' | 'rollup' | 'gulp' | 'tsc' | '';
-export type PROJECT_TYPE = 'spa-react' | 'component-library-react' | 'toolkit';
+export type BUILD = 'webpack' | 'rollup' | 'gulp' | 'tsc' | 'next' | '';
+export type PROJECT_TYPE = 'spa-react' | 'spa-vue' | 'ssr-react' | 'ssr-vue' | 'component-react' | 'component-vue' | 'toolkit';
 export type PKJTOOL = 'yarn' | 'npm' | 'cnpm';
 export type STYLE = 'less' | 'scss' | 'css' | 'all' | '';
 export type DEVSERVER = 'docz' | 'storybook' | 'styleguidist' | 'bisheng' | '';
