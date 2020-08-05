@@ -5,9 +5,9 @@ import { logWarn } from './logger';
 export default function (moduleId: string, silent?: boolean) {
   let result = null;
   try {
-    const cwd = process.cwd();
+    const CWD = process.cwd();
     const cwdPaths = {
-      paths: [ cwd, path.resolve(cwd, 'node_modules') ]
+      paths: [ CWD, path.resolve(CWD, 'node_modules') ]
     };
     const realPath = require.resolve(moduleId, cwdPaths);
     if (!fs.existsSync(realPath)) {
