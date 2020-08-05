@@ -11,7 +11,7 @@ The Utils for omni-door's projects.
 ## Install
 * Clone the repo: `git clone git@github.com:omni-door/utils.git`
 
-* Install with [npm](https://www.npmjs.com/package/@omni-door/utils): `npm install @omni-door/utils`
+* Install with [Npm](https://www.npmjs.com/package/@omni-door/utils): `npm install @omni-door/utils`
 
 * Install with [Yarn](https://yarnpkg.com/en/package/@omni-door/utils): `yarn add @omni-door/utils`
 
@@ -190,6 +190,16 @@ The Utils for omni-door's projects.
   import { intersection } from '@omni-door/utils';
 
   depArr = [ ...intersection(depArr, depArr.filter(v => v !== 1)) ]
+  ```
+
+- require_cwd
+  ```js
+  import { require_cwd } from '@omni-door/utils';
+
+  const errSilent = true;
+  const Koa = require_cwd('koa', errSilent);
+  const app = new Koa();
+  // ...
   ```
 
 - spinner
