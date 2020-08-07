@@ -14,7 +14,7 @@ import {
 import node_version from '../node_version';
 import output_file from '../output_file';
 import spinner from '../spinner';
-import { tpl_engine_init, tpl_engine_new } from '../tpl_engine';
+import { tpl_engine_init, tpl_engine_new, _typeof } from '../tpl_engine';
 import { default as require_cwd } from '../require_cwd';
 
 describe('exec test', function () {
@@ -270,8 +270,13 @@ describe('spinner test', function () {
 
 describe('tpl_engine_init test', function () {
   const tpls = {
-    tplA: '`hello, ${include("tplB")}`',
-    tplB: '`world`'
+    tplA: '`hello-${include("tplB")}-${alter("test", "tplTest")}-${alter_project_type({ toolkit: "tplToolkit" })}-${alter_style({ css: "tplCss" })}-${alter_strategy({ stable: "tplStable" })};${alter("ts", "tplTs")}`',
+    tplB: '`world`',
+    tplTest: '`unit-test`',
+    tplTs: '`typescript`',
+    tplToolkit: '`toolkit`',
+    tplCss: '`css`',
+    tplStable: '`stable`'
   };
   const envs = {
     ts: false,
@@ -293,14 +298,17 @@ describe('tpl_engine_init test', function () {
     expect(tpl_engine_init).to.be.a('function');
     expect(output_tpl).to.be.a('function');
     expect(tpl).to.be.a('string');
-    expect(tpl).to.be.equal('hello, world');
+    expect(tpl).to.be.equal('hello-world-unit-test-toolkit-css-stable;');
   });
 });
 
 describe('tpl_engine_new test', function () {
   const tpls = {
-    tplA: '`hello, ${include("tplB")}`',
-    tplB: '`world`'
+    tplA: '`hello-${include("tplB")}-${alter("test", "tplTest")}-${alter_style({ css: "tplCss" })};${alter("ts", "tplTs")}`',
+    tplB: '`world`',
+    tplTest: '`unit-test`',
+    tplTs: '`typescript`',
+    tplCss: '`css`'
   };
   const envs = {
     ts: false,
@@ -317,7 +325,7 @@ describe('tpl_engine_new test', function () {
     expect(tpl_engine_new).to.be.a('function');
     expect(output_tpl).to.be.a('function');
     expect(tpl).to.be.a('string');
-    expect(tpl).to.be.equal('hello, world');
+    expect(tpl).to.be.equal('hello-world-unit-test-css;');
   });
 });
 
@@ -340,5 +348,21 @@ describe('require_cwd test', function () {
   it('call require_cwd - unknown', function () {
     const unknown = require_cwd('some_unknown_package', true);
     expect(unknown).to.be.equal(null);
+  });
+});
+
+describe('_typeof test', function () {
+  it('type checking', function () {
+    expect(_typeof).to.be.a('function');
+  });
+
+  it('call _typeof', function () {
+    expect(_typeof({})).to.be.equal('object');
+    expect(_typeof([])).to.be.equal('array');
+    expect(_typeof(1)).to.be.equal('number');
+    expect(_typeof('test')).to.be.equal('string');
+    expect(_typeof(Symbol('symbol'))).to.be.equal('symbol');
+    expect(_typeof(undefined)).to.be.equal('undefined');
+    expect(_typeof(null)).to.be.equal('null');
   });
 });

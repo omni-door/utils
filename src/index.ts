@@ -24,7 +24,7 @@ import {
 import node_version from './node_version';
 import output_file from './output_file';
 import spinner from './spinner';
-import { tpl_engine_init, tpl_engine_new } from './tpl_engine';
+import { tpl_engine_init, tpl_engine_new, _typeof } from './tpl_engine';
 import require_cwd from './require_cwd';
 
 export { BUILD, PKJTOOL, PLUGINSTAGE, PROJECT_TYPE, STRATEGY, STYLE, LOGLEVEL, MARKDOWN, DEVSERVER, TESTFRAME, HASH } from './global.d';
@@ -54,7 +54,7 @@ export {
 export { default as node_version } from './node_version';
 export { default as output_file } from './output_file';
 export { default as spinner } from './spinner';
-export { tpl_engine_init, tpl_engine_new } from './tpl_engine';
+export { tpl_engine_init, tpl_engine_new, _typeof } from './tpl_engine';
 export { default as require_cwd } from './require_cwd';
 
 export default {
@@ -81,5 +81,6 @@ export default {
   spinner,
   tpl_engine_init,
   tpl_engine_new,
+  _typeof,
   require_cwd
 };

@@ -13,7 +13,7 @@ export interface ENV_NEW {
 }
 type AlterEnv_NEW = Exclude<keyof ENV_NEW, 'componentName' | 'style' | 'md' | 'newPath'>;
 
-function _typeof (ele: any) {
+export function _typeof (ele: any) {
   if (typeof ele !== 'object') return typeof ele;
   if (!ele) return 'null'; // fix typeof null === 'object' problem
   const len = Object.prototype.toString.call(ele).length - 1;
