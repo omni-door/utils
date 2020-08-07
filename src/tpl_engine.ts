@@ -13,7 +13,7 @@ export interface ENV_NEW {
 }
 type AlterEnv_NEW = Exclude<keyof ENV_NEW, 'componentName' | 'style' | 'md' | 'newPath'>;
 
-function type_of (ele: any) {
+function _typeof (ele: any) {
   if (typeof ele !== 'object') return typeof ele;
   if (!ele) return 'null'; // fix typeof null === 'object' problem
   const len = Object.prototype.toString.call(ele).length - 1;
@@ -52,7 +52,7 @@ export function tpl_engine_new (
         scss?: string;
         all?: string
       }) {
-        if (type_of(tplNames) !== 'object') return '';
+        if (_typeof(tplNames) !== 'object') return '';
         const realStyle = envs['style'];
         if (!realStyle) return '';
         const tplName = tplNames[realStyle];
@@ -60,7 +60,7 @@ export function tpl_engine_new (
         const tplFn: TplFn | undefined = newTpls[tplName] as any;
         return tplFn ? tplFn() : '';
       },
-      type_of,
+      _typeof,
       ...(params || {})
     };
   
@@ -129,7 +129,7 @@ export function tpl_engine_init (
         'component-vue'?: string;
         'toolkit'?: string;
       }) {
-        if (type_of(tplNames) !== 'object') return '';
+        if (_typeof(tplNames) !== 'object') return '';
         const realType = envs['project_type'];
         if (!realType) return '';
         const tplName = tplNames[realType];
@@ -143,7 +143,7 @@ export function tpl_engine_init (
         scss?: string;
         all?: string
       }) {
-        if (type_of(tplNames) !== 'object') return '';
+        if (_typeof(tplNames) !== 'object') return '';
         const realStyle = envs['style'];
         if (!realStyle) return '';
         const tplName = tplNames[realStyle];
@@ -155,7 +155,7 @@ export function tpl_engine_init (
         stable?: string;
         latest?: string;
       }) {
-        if (type_of(tplNames) !== 'object') return '';
+        if (_typeof(tplNames) !== 'object') return '';
         const realStrategy = envs['strategy'];
         if (!realStrategy) return '';
         const tplName = tplNames[realStrategy];
@@ -163,7 +163,7 @@ export function tpl_engine_init (
         const tplFn: TplFn | undefined = newTpls[tplName] as any;
         return tplFn ? tplFn() : '';
       },
-      type_of,
+      _typeof,
       ...(params || {})
     };
   
