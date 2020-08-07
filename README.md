@@ -257,3 +257,16 @@ The Utils for omni-door's projects.
   const output_tpl = tpl_engine_new(tpls, 'tplA');
   const tpl = output_tpl(envs);
   ```
+
+- _typeof
+  ```js
+  import { _typeof } from '@omni-door/utils';
+
+  _typeof(null); // "null"
+  _typeof(undefined); // "undefined"
+  _typeof([]); // "array"
+  _typeof({}); // "object"
+  _typeof(Symbol('symbol')); // "symbol"
+  _typeof(''); // "string"
+  _typeof(0); // "number"
+  ```
