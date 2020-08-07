@@ -3,6 +3,7 @@
 iterate=$1
 name="🐸  [OMNI-DOOR/UTILS]"
 dot="."
+OS=`uname`
 
 replaceVersion () {
   if [ "$OS" = "Darwin" ]; then
