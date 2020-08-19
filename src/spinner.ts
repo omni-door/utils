@@ -1,9 +1,10 @@
 import ora from 'ora';
-import { SpinnerName } from 'cli-spinners';
 import chalk from 'chalk';
 import getLogPrefix from './log_prefix';
 import { stateMap2Emoji } from './emoji';
-import { SPINNER_STATE } from './global.d';
+/* import types */
+import type { SpinnerName } from 'cli-spinners';
+import type { SPINNER_STATE } from './global.d';
 
 const stateMapColor = {
   'start': 'white' as 'white',

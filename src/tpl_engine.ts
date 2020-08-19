@@ -1,5 +1,6 @@
 import vm from 'vm';
-import { STRATEGY, PROJECT_TYPE, STYLE, MARKDOWN } from './global.d';
+/* import types */
+import type { STRATEGY, PROJECT_TYPE, STYLE, MARKDOWN } from './global.d';
 
 type TplFn = () => string;
 
@@ -37,7 +38,7 @@ export function tpl_engine_new (
       },
       alter: function (env: AlterEnv_NEW, tplName: string, value?: boolean) {
         if (!env || !tplName) return '';
-        let alter = envs[env];
+        const alter = envs[env];
 
         if (typeof value === 'boolean') {
           if (alter !== value) return '';
@@ -111,7 +112,7 @@ export function tpl_engine_init (
       },
       alter: function (env: AlterEnv_INIT, tplName: string, value?: boolean) {
         if (!env || !tplName) return '';
-        let alter = envs[env];
+        const alter = envs[env];
 
         if (typeof value === 'boolean') {
           if (alter !== value) return '';

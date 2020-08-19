@@ -1,4 +1,4 @@
-import { STRATEGY } from './global.d';
+import type { STRATEGY } from './global.d';
 
 export function getDependency <T>(strategy: STRATEGY, dependencies: T) {
   return function (key: keyof T) {
