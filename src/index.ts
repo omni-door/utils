@@ -55,7 +55,7 @@ export { default as output_file } from './output_file';
 export { default as spinner } from './spinner';
 export { tpl_engine_init, tpl_engine_new, _typeof } from './tpl_engine';
 export { default as require_cwd } from './require_cwd';
-export type { BUILD, PKJTOOL, PLUGINSTAGE, PROJECT_TYPE, STRATEGY, STYLE, LOGLEVEL, MARKDOWN, DEVSERVER, TESTFRAME, HASH } from './global.d';
+export type { BUILD, PKJTOOL, PLUGINSTAGE, PROJECT_TYPE, STRATEGY, STYLE, LOGLEVEL, MARKDOWN, SPASERVER, COMPONENTSERVER, SSRSERVER, TESTFRAME, HASH } from './global.d';
 
 export default {
   exec,
