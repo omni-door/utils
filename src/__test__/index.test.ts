@@ -156,8 +156,8 @@ describe('name_check test', function () {
   });
 
   it('call name_check', function () {
-    const res = name_check('~test');
-    expect(res).to.be.true;
+    const res = name_check('~test', true);
+    expect(res).to.be.false;
   });
 });
 
@@ -409,7 +409,7 @@ describe('tryGitInit test', function () {
     expect(tryGitInit).to.be.a('function');
   });
 
-  it('call isInGitRepository', function () {
-    expect(tryGitInit()).to.be.true;
+  it('call tryGitInit', function () {
+    expect(tryGitInit()).to.be.false;
   });
 });
