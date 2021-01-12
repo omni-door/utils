@@ -11,11 +11,14 @@ import {
   arr2str,
   intersection
 } from '../dependencies';
+import name_check from '../name_check';
 import node_version from '../node_version';
+import npm_version from '../npm_version';
 import output_file from '../output_file';
 import spinner from '../spinner';
 import { tpl_engine_init, tpl_engine_new, _typeof } from '../tpl_engine';
 import { default as require_cwd } from '../require_cwd';
+import { isInGitRepository, tryGitInit } from '../git_handlers';
 
 describe('exec test', function () {
   it('type checking', function () {
@@ -147,6 +150,17 @@ describe('logger test', function () {
   });
 });
 
+describe('name_check test', function () {
+  it('type checking', function () {
+    expect(name_check).to.be.a('function');
+  });
+
+  it('call name_check', function () {
+    const res = name_check('~test');
+    expect(res).to.be.true;
+  });
+});
+
 describe('node_version test', function () {
   it('type checking', function () {
     expect(node_version).to.be.a('function');
@@ -155,6 +169,19 @@ describe('node_version test', function () {
   it('call node_version', function (done) {
     node_version('8.17.0').then(res => {
       expect(res).to.be.true;
+      done();
+    });
+  });
+});
+
+describe('npm_version test', function () {
+  it('type checking', function () {
+    expect(npm_version).to.be.a('function');
+  });
+
+  it('call npm_version', function (done) {
+    npm_version('@omni-door/cli', '2.0.0').then(res => {
+      expect(res).to.be.false;
       done();
     });
   });
@@ -364,5 +391,25 @@ describe('_typeof test', function () {
     expect(_typeof(Symbol('symbol'))).to.be.equal('symbol');
     expect(_typeof(undefined)).to.be.equal('undefined');
     expect(_typeof(null)).to.be.equal('null');
+  });
+});
+
+describe('isInGitRepository test', function () {
+  it('type checking', function () {
+    expect(isInGitRepository).to.be.a('function');
+  });
+
+  it('call isInGitRepository', function () {
+    expect(isInGitRepository()).to.be.true;
+  });
+});
+
+describe('tryGitInit test', function () {
+  it('type checking', function () {
+    expect(tryGitInit).to.be.a('function');
+  });
+
+  it('call isInGitRepository', function () {
+    expect(tryGitInit()).to.be.true;
   });
 });
