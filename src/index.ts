@@ -62,7 +62,7 @@ export { tpl_engine_init, tpl_engine_new, _typeof } from './tpl_engine';
 export { default as require_cwd } from './require_cwd';
 export { isInGitRepository, tryGitInit } from './git_handlers';
 
-export type { BUILD, PKJTOOL, PLUGINSTAGE, PROJECT_TYPE, STRATEGY, STYLE, LOGLEVEL, MARKDOWN, SPASERVER, COMPONENTSERVER, SSRSERVER, TESTFRAME, HASH } from './global.d';
+export type { BUILD, PKJTOOL, PLUGINSTAGE, PROJECT_TYPE, STRATEGY, STYLE, LAYOUT, LOGLEVEL, MARKDOWN, SPASERVER, COMPONENTSERVER, SSRSERVER, TESTFRAME, HASH } from './global.d';
 
 export default {
   exec,

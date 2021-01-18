@@ -2,6 +2,7 @@ export type BUILD = 'webpack' | 'rollup' | 'gulp' | 'tsc' | 'next' | '';
 export type PROJECT_TYPE = 'spa-react' | 'spa-vue' | 'ssr-react' | 'ssr-vue' | 'component-react' | 'component-vue' | 'toolkit';
 export type PKJTOOL = 'yarn' | 'npm' | 'pnpm';
 export type STYLE = 'less' | 'scss' | 'css' | 'all' | '';
+export type LAYOUT = 'viewport' | 'rem' | 'px' | '';
 export type SPASERVER = 'express-webpack' | '';
 export type COMPONENTSERVER = 'docz' | 'storybook' | 'styleguidist' | 'bisheng' | '';
 export type SSRSERVER = 'next' | 'koa-next' | 'nuxt' | 'koa-nuxt' | '';
