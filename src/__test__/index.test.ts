@@ -19,6 +19,7 @@ import spinner from '../spinner';
 import { tpl_engine_init, tpl_engine_new, _typeof } from '../tpl_engine';
 import { default as require_cwd } from '../require_cwd';
 import { isInGitRepository, tryGitInit } from '../git_handlers';
+import pkj from '../../package.json';
 
 describe('exec test', function () {
   it('type checking', function () {
@@ -217,24 +218,25 @@ describe('getDependency test', function () {
     expect(getDependency).to.be.a('function');
   });
 
-  it('call getDependency', function () {
-    const dependecies_stable = getDependency('stable', {
-      'react': '16.13.0',
-      'react-dom': '16.12.0'
+  it('call getDependency', function (done) {
+    this.timeout(10000);
+    getDependency('latest', {
+      '@omni-door/utils': '1.1.5'
+    }).then(async dependecies_latest => {
+      const dependecies_stable = await getDependency('stable', {
+        'react': '16.13.0',
+        'react-dom': '16.12.0'
+      });
+      expect(dependecies_stable).to.be.a('function');
+      expect(dependecies_latest).to.be.a('function');
+  
+      expect(dependecies_stable('react')).to.be.a('string');
+      expect(dependecies_stable('react')).to.be.equal('react@16.13.0');
+      expect(dependecies_latest('@omni-door/utils')).to.be.a('string');
+      expect(dependecies_latest('@omni-door/utils')).to.be.equal(`@omni-door/utils@^${pkj.version}`);
+  
+      done();
     });
-
-    const dependecies_latest = getDependency('latest', {
-      'react': '16.13.0',
-      'react-dom': '16.12.0'
-    });
-
-    expect(dependecies_stable).to.be.a('function');
-    expect(dependecies_latest).to.be.a('function');
-
-    expect(dependecies_stable('react')).to.be.a('string');
-    expect(dependecies_stable('react')).to.be.equal('react@16.13.0');
-    expect(dependecies_latest('react-dom')).to.be.a('string');
-    expect(dependecies_latest('react-dom')).to.be.equal('react-dom@latest');
   });
 });
 
