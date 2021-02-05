@@ -4,10 +4,12 @@ import semver from 'semver';
 import { execSync } from'child_process';
 import { logInfo } from './logger';
 
-export async function npm_version (pkgName: string, options?: {
+export type Options = {
   protocol?: string;
   hostname?: string;
-}) {
+};
+
+export async function npm_version (pkgName: string, options?: Options) {
   const {
     protocol = 'https',
     hostname = 'registry.npmjs.org'
