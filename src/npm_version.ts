@@ -4,7 +4,7 @@ import semver from 'semver';
 import { execSync } from'child_process';
 import { logInfo } from './logger';
 
-async function npm_version (pkgName: string, options?: {
+export async function npm_version (pkgName: string, options?: {
   protocol?: string;
   hostname?: string;
 }) {

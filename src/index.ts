@@ -23,7 +23,7 @@ import {
 } from './dependencies';
 import name_check from './name_check';
 import node_version from './node_version';
-import npm_version from './npm_version';
+import npm_version, { npm_version as get_npm_version } from './npm_version';
 import output_file from './output_file';
 import spinner from './spinner';
 import { tpl_engine_init, tpl_engine_new, _typeof } from './tpl_engine';
@@ -55,7 +55,7 @@ export {
 } from './dependencies';
 export { default as name_check } from './name_check';
 export { default as node_version } from './node_version';
-export { default as npm_version } from './npm_version';
+export { default as npm_version, npm_version as get_npm_version } from './npm_version';
 export { default as output_file } from './output_file';
 export { default as spinner } from './spinner';
 export { tpl_engine_init, tpl_engine_new, _typeof } from './tpl_engine';
@@ -83,6 +83,7 @@ export default {
   name_check,
   node_version,
   npm_version,
+  get_npm_version,
   output_file,
   getDependency,
   arr2str,
