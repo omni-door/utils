@@ -57,7 +57,7 @@ export {
 export { default as pkgNameCheck } from './pkgName';
 export { default as nodeVersionCheck } from './nodeVersion';
 export { default as npmVersionCheck, npm_version as getNpmVersion } from './npmVersion';
-export { default as output_file } from './outputFile';
+export { default as outputFile } from './outputFile';
 export { default as spinner } from './spinner';
 export { tpl_engine_init as tplEngineInit, tpl_engine_new as tplEngineNew, _typeof } from './tplEngine';
 export { default as requireCwd } from './requireCwd';
