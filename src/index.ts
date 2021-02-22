@@ -62,6 +62,7 @@ export { default as spinner } from './spinner';
 export { tpl_engine_init as tplEngineInit, tpl_engine_new as tplEngineNew, _typeof } from './tplEngine';
 export { default as requireCwd } from './requireCwd';
 export { isInGitRepository, tryGitInit } from './gitHandlers';
+export { default as updateNotifier } from './updateNotifier';
 
 export type { BUILD, PKJTOOL, PLUGINSTAGE, PROJECT_TYPE, STRATEGY, STYLE, LAYOUT, LOGLEVEL, MARKDOWN, SPASERVER, COMPONENTSERVER, SSRSERVER, TESTFRAME, HASH } from './global.d';
 
