@@ -1,6 +1,6 @@
 import ora from 'ora';
 import chalk from 'chalk';
-import getLogPrefix from './log_prefix';
+import getLogPrefix from './logPrefix';
 import { stateMap2Emoji } from './emoji';
 /* import types */
 import type { SpinnerName } from 'cli-spinners';

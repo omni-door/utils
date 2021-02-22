@@ -2,7 +2,7 @@ import chalk from 'chalk';
 import validateProjectName from 'validate-npm-package-name';
 import { logWarn } from './logger';
 
-function name_check (name: string, noExit?: boolean) {
+function pkgName (name: string, noExit?: boolean) {
   const validationResult = validateProjectName(name);
   if (!validationResult.validForNewPackages) {
     const pkjName = chalk.green(`"${name}"`);
@@ -18,4 +18,4 @@ function name_check (name: string, noExit?: boolean) {
   return true;
 }
 
-export default name_check;
+export default pkgName;

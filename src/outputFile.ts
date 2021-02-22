@@ -1,7 +1,7 @@
 import fsExtra from 'fs-extra';
 import { logDetail, logErr } from './logger';
 
-export function output_file ({
+export function outputFile ({
   file_path,
   file_content,
   mode = 0o777,
@@ -25,4 +25,4 @@ export function output_file ({
   }
 }
 
-export default output_file;
+export default outputFile;

@@ -1,6 +1,6 @@
 import vm from 'vm';
 /* import types */
-import type { STRATEGY, PROJECT_TYPE, STYLE, MARKDOWN } from './global.d';
+import type { STRATEGY, PROJECT_TYPE, STYLE, MARKDOWN } from './global';
 
 type TplFn = () => string;
 

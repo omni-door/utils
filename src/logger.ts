@@ -1,6 +1,6 @@
 import chalk from 'chalk';
 import { Signale } from 'signale';
-import getLogPrefix, { getLogo, getBrand } from './log_prefix';
+import getLogPrefix, { getLogo, getBrand } from './logPrefix';
 import { stateMap2Emoji } from './emoji';
 
 const signale = new Signale({

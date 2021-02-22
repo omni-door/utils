@@ -4,21 +4,22 @@ import { describe, it } from 'mocha';
 import { expect } from 'chai';
 import exec from '../exec';
 import { stateMap2Emoji } from '../emoji';
-import logPrefix, { setLogo, getLogo, setBrand, getBrand } from '../log_prefix';
+import logPrefix, { setLogo, getLogo, setBrand, getBrand } from '../logPrefix';
 import { logDetail, logEmph, logInfo, logErr, logWarn, logSuc, underline, italic } from '../logger';
 import {
   getDependency,
   arr2str,
   intersection
 } from '../dependencies';
-import name_check from '../name_check';
-import node_version from '../node_version';
-import npm_version from '../npm_version';
-import output_file from '../output_file';
+import pkgName from '../pkgName';
+import nodeVersion from '../nodeVersion';
+import npmVersion from '../npmVersion';
+import outputFile from '../outputFile';
 import spinner from '../spinner';
-import { tpl_engine_init, tpl_engine_new, _typeof } from '../tpl_engine';
-import { default as require_cwd } from '../require_cwd';
-import { isInGitRepository, tryGitInit } from '../git_handlers';
+import { tpl_engine_init as tplEngineInit, tpl_engine_new as tplEngineNew, _typeof } from '../tplEngine';
+import { default as requireCwd } from '../requireCwd';
+import { isInGitRepository, tryGitInit } from '../gitHandlers';
+import updateNotifier from '../updateNotifier';
 import pkj from '../../package.json';
 
 describe('exec test', function () {
@@ -151,52 +152,53 @@ describe('logger test', function () {
   });
 });
 
-describe('name_check test', function () {
+describe('pkgName test', function () {
   it('type checking', function () {
-    expect(name_check).to.be.a('function');
+    expect(pkgName).to.be.a('function');
   });
 
-  it('call name_check', function () {
-    const res = name_check('~test', true);
+  it('call pkgName', function () {
+    const res = pkgName('~test', true);
     expect(res).to.be.false;
   });
 });
 
-describe('node_version test', function () {
+describe('nodeVersion test', function () {
   it('type checking', function () {
-    expect(node_version).to.be.a('function');
+    expect(nodeVersion).to.be.a('function');
   });
 
-  it('call node_version', function (done) {
-    node_version('8.17.0').then(res => {
+  it('call nodeVersion', function (done) {
+    nodeVersion('8.17.0').then(res => {
       expect(res).to.be.true;
       done();
     });
   });
 });
 
-describe('npm_version test', function () {
+describe('npmVersion test', function () {
+  this.timeout(10000);
   it('type checking', function () {
-    expect(npm_version).to.be.a('function');
+    expect(npmVersion).to.be.a('function');
   });
 
-  it('call npm_version', function (done) {
-    npm_version('@omni-door/cli', '2.0.0').then(res => {
+  it('call npmVersion', function (done) {
+    npmVersion('@omni-door/cli', '2.0.0').then(res => {
       expect(res).to.be.false;
       done();
     });
   });
 });
 
-describe('output_file test', function () {
+describe('outputFile test', function () {
   it('type checking', function () {
-    expect(output_file).to.be.a('function');
+    expect(outputFile).to.be.a('function');
   });
 
-  it('call output_file', function () {
+  it('call outputFile', function () {
     const file_path = path.resolve(__dirname, '../../test.js');
     const content = `const a = ${(Math.random() * 100).toFixed(5)};`;
-    output_file({
+    outputFile({
       file_path: file_path,
       file_content: content,
       mode: 0o775
@@ -206,7 +208,7 @@ describe('output_file test', function () {
     });
     expect(ctx === content).to.be.true;
 
-    output_file({
+    outputFile({
       file_path: '',
       file_content: ''
     });
@@ -297,7 +299,7 @@ describe('spinner test', function () {
   });
 });
 
-describe('tpl_engine_init test', function () {
+describe('tplEngineInit test', function () {
   const tpls = {
     tplA: '`hello-${include("tplB")}-${alter("test", "tplTest")}-${alter_project_type({ toolkit: "tplToolkit" })}-${alter_style({ css: "tplCss" })}-${alter_strategy({ stable: "tplStable" })};${alter("ts", "tplTs")}`',
     tplB: '`world`',
@@ -320,18 +322,18 @@ describe('tpl_engine_init test', function () {
     stylelint: true,
     configFileName: 'test.config.js'
   };
-  const output_tpl = tpl_engine_init(tpls, 'tplA');
+  const output_tpl = tplEngineInit(tpls, 'tplA');
   const tpl = output_tpl(envs);
 
   it('type checking', function () {
-    expect(tpl_engine_init).to.be.a('function');
+    expect(tplEngineInit).to.be.a('function');
     expect(output_tpl).to.be.a('function');
     expect(tpl).to.be.a('string');
     expect(tpl).to.be.equal('hello-world-unit-test-toolkit-css-stable;');
   });
 });
 
-describe('tpl_engine_new test', function () {
+describe('tplEngineNew test', function () {
   const tpls = {
     tplA: '`hello-${include("tplB")}-${alter("test", "tplTest")}-${alter_style({ css: "tplCss" })};${alter("ts", "tplTs")}`',
     tplB: '`world`',
@@ -347,35 +349,35 @@ describe('tpl_engine_new test', function () {
     test: true,
     md: 'md' as 'md'
   };
-  const output_tpl = tpl_engine_new(tpls, 'tplA');
+  const output_tpl = tplEngineNew(tpls, 'tplA');
   const tpl = output_tpl(envs);
 
   it('type checking', function () {
-    expect(tpl_engine_new).to.be.a('function');
+    expect(tplEngineNew).to.be.a('function');
     expect(output_tpl).to.be.a('function');
     expect(tpl).to.be.a('string');
     expect(tpl).to.be.equal('hello-world-unit-test-css;');
   });
 });
 
-describe('require_cwd test', function () {
+describe('requireCwd test', function () {
   it('type checking', function () {
-    expect(require_cwd).to.be.a('function');
+    expect(requireCwd).to.be.a('function');
   });
 
-  it('call require_cwd - node_modules/chalk', function () {
-    const chalk = require_cwd('chalk');
+  it('call requireCwd - node_modules/chalk', function () {
+    const chalk = requireCwd('chalk');
     expect(chalk).to.be.a('function');
   });
 
-  it('call require_cwd - package.json', function () {
-    const pkj = require_cwd('./package.json');
+  it('call requireCwd - package.json', function () {
+    const pkj = requireCwd('./package.json');
     expect(pkj).to.be.a('object');
     expect(pkj.name).to.be.equal('@omni-door/utils');
   });
 
-  it('call require_cwd - unknown', function () {
-    const unknown = require_cwd('some_unknown_package', true);
+  it('call requireCwd - unknown', function () {
+    const unknown = requireCwd('some_unknown_package', true);
     expect(unknown).to.be.equal(null);
   });
 });
@@ -413,5 +415,15 @@ describe('tryGitInit test', function () {
 
   it('call tryGitInit', function () {
     expect(tryGitInit()).to.be.false;
+  });
+});
+
+describe('updateNotifier test', function () {
+  it('type checking', function () {
+    expect(updateNotifier).to.be.a('function');
+  });
+
+  it('call updateNotifier', function () {
+    expect(updateNotifier(pkj)).to.be.undefined;
   });
 });

@@ -1,5 +1,5 @@
-import { npm_version } from './npm_version';
-import type { Options } from './npm_version';
+import { npm_version } from './npmVersion';
+import type { Options } from './npmVersion';
 import type { STRATEGY } from './global.d';
 
 export async function getDependency <T extends Record<string, string>>(strategy: STRATEGY, dependencies: T, options?: Options) {

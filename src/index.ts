@@ -4,7 +4,7 @@ import logPrefix, {
   setBrand,
   getLogo,
   getBrand
-} from './log_prefix';
+} from './logPrefix';
 import {
   logDetail,
   logEmph,
@@ -21,14 +21,15 @@ import {
   arr2str,
   intersection
 } from './dependencies';
-import name_check from './name_check';
-import node_version from './node_version';
-import npm_version, { npm_version as get_npm_version } from './npm_version';
-import output_file from './output_file';
+import pkgNameCheck from './pkgName';
+import nodeVersionCheck from './nodeVersion';
+import npmVersionCheck, { npm_version as getNpmVersion } from './npmVersion';
+import outputFile from './outputFile';
 import spinner from './spinner';
-import { tpl_engine_init, tpl_engine_new, _typeof } from './tpl_engine';
-import require_cwd from './require_cwd';
-import { isInGitRepository, tryGitInit } from './git_handlers';
+import { tpl_engine_init as tplEngineInit, tpl_engine_new as tplEngineNew, _typeof } from './tplEngine';
+import requireCwd from './requireCwd';
+import { isInGitRepository, tryGitInit } from './gitHandlers';
+import updateNotifier from './updateNotifier';
 
 export { default as exec } from './exec';
 export { default as logPrefix,
@@ -36,7 +37,7 @@ export { default as logPrefix,
   setBrand,
   getLogo,
   getBrand
-} from './log_prefix';
+} from './logPrefix';
 export {
   logDetail,
   logEmph,
@@ -53,14 +54,14 @@ export {
   arr2str,
   intersection
 } from './dependencies';
-export { default as name_check } from './name_check';
-export { default as node_version } from './node_version';
-export { default as npm_version, npm_version as get_npm_version } from './npm_version';
-export { default as output_file } from './output_file';
+export { default as pkgNameCheck } from './pkgName';
+export { default as nodeVersionCheck } from './nodeVersion';
+export { default as npmVersionCheck, npm_version as getNpmVersion } from './npmVersion';
+export { default as output_file } from './outputFile';
 export { default as spinner } from './spinner';
-export { tpl_engine_init, tpl_engine_new, _typeof } from './tpl_engine';
-export { default as require_cwd } from './require_cwd';
-export { isInGitRepository, tryGitInit } from './git_handlers';
+export { tpl_engine_init as tplEngineInit, tpl_engine_new as tplEngineNew, _typeof } from './tplEngine';
+export { default as requireCwd } from './requireCwd';
+export { isInGitRepository, tryGitInit } from './gitHandlers';
 
 export type { BUILD, PKJTOOL, PLUGINSTAGE, PROJECT_TYPE, STRATEGY, STYLE, LAYOUT, LOGLEVEL, MARKDOWN, SPASERVER, COMPONENTSERVER, SSRSERVER, TESTFRAME, HASH } from './global.d';
 
@@ -80,19 +81,20 @@ export default {
   logTime,
   underline,
   italic,
-  name_check,
-  node_version,
-  npm_version,
-  get_npm_version,
-  output_file,
+  pkgNameCheck,
+  nodeVersionCheck,
+  npmVersionCheck,
+  getNpmVersion,
+  outputFile,
   getDependency,
   arr2str,
   intersection,
   spinner,
-  tpl_engine_init,
-  tpl_engine_new,
+  tplEngineInit,
+  tplEngineNew,
   _typeof,
-  require_cwd,
+  requireCwd,
   isInGitRepository,
-  tryGitInit
+  tryGitInit,
+  updateNotifier
 };

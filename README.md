@@ -118,39 +118,73 @@ The Utils for omni-door's projects.
   logDetail(italic('this is a message!')); // ❤️️  [ODYSSEY]: this is a message! (italic font)
   ```
 
-- node_version
+- nodeVersionCheck
   ```sh
   node -v # v10.13.0
   ```
 
   ```js
-  import { node_version } from '@omni-door/utils';
+  import { nodeVersionCheck } from '@omni-door/utils';
 
   // pass
   (async function () {
     // require node version >= 10
-    await node_version('10');
+    await nodeVersionCheck('10');
   })()
 
   // can't through the check and will be exit with warn log
   (async function () {
     // require node version >= 10.14
-    await node_version('10.14');
+    await nodeVersionCheck('10.14');
   })()
 
   // can't through the check and will be exit with warn log
   (async function () {
     // require node version >= 10.13.1
-    await node_version('10.13.1');
+    await nodeVersionCheck('10.13.1');
   })()
   ```
 
-- output_file
+- npmVersionCheck
+  ```js
+  import { npmVersionCheck } from '@omni-door/utils';
+
+  // the npm-package current version whether equal the latest version
+  // if not, will print some info
+  npmVersionCheck('@omni-door/cli', '2.2.10');
+  ```
+
+- updateNotifier
+  ```js
+  import { updateNotifier } from '@omni-door/utils';
+  import pkg from '../package.json'
+
+  // update pkg notifier
+  updateNotifier(pkg);
+  ```
+
+- getNpmVersion
+  ```js
+  import { getNpmVersion } from '@omni-door/utils';
+
+  // get the npm-package latest version
+  getNpmVersion('@omni-door/cli'); // 2.2.14
+  ```
+
+- pkgNameCheck
+  ```js
+  import { pkgNameCheck } from '@omni-door/utils';
+
+  // check the project name whether or not meet the npm-package-name rule
+  pkgNameCheck('yourProjectName');
+  ```
+
+- outputFile
   ```js
   import path from 'path';
-  import { output_file } from '@omni-door/utils';
+  import { outputFile } from '@omni-door/utils';
 
-  output_file({
+  outputFile({
     file_path: path.resolve(__dirname, 'src/test.txt'),
     file_content: 'I am a test content!'
   });
@@ -167,7 +201,7 @@ The Utils for omni-door's projects.
     'regenerator-runtime': '0.13.3'
   });
 
-  const dependency_stable = getDependency('stable', {
+  const dependencyStable = getDependency('stable', {
     'core-js': '3.6.4',
     'react': '16.12.0',
     'react-dom': '16.12.0',
@@ -175,7 +209,7 @@ The Utils for omni-door's projects.
   });
 
   dependency('react'); // 'react@latest'
-  dependency_stable('react'); // 'react@16.12.0'
+  dependencyStable('react'); // 'react@16.12.0'
   ```
 
 - arr2str
@@ -192,12 +226,12 @@ The Utils for omni-door's projects.
   depArr = [ ...intersection(depArr, depArr.filter(v => v !== 1)) ]
   ```
 
-- require_cwd
+- requireCwd
   ```js
-  import { require_cwd } from '@omni-door/utils';
+  import { requireCwd } from '@omni-door/utils';
 
   const errSilent = true;
-  const Koa = require_cwd('koa', errSilent);
+  const Koa = requireCwd('koa', errSilent);
   const app = new Koa();
   // ...
   ```
@@ -213,9 +247,9 @@ The Utils for omni-door's projects.
   spinner.state('succeed', 'succeed!');
   ```
 
-- tpl_engine_init
+- tplEngineInit
   ```js
-  import { tpl_engine_init } from '@omni-door/utils';
+  import { tplEngineInit } from '@omni-door/utils';
 
   const tpls = {
     tplA: '`hello, ${include("tplB")}`',
@@ -234,13 +268,13 @@ The Utils for omni-door's projects.
     stylelint: true,
     configFileName: 'omni.config.js'
   };
-  const output_tpl = tpl_engine_init(tpls, 'tplA');
-  const tpl = output_tpl(envs);
+  const outputTpl = tplEngineInit(tpls, 'tplA');
+  const tpl = outputTpl(envs);
   ```
 
-- tpl_engine_new
+- tplEngineNew
   ```js
-  import { tpl_engine_new } from '@omni-door/utils';
+  import { tplEngineNew } from '@omni-door/utils';
 
   const tpls = {
     tplA: '`hello, ${include("tplB")}`',
@@ -254,8 +288,8 @@ The Utils for omni-door's projects.
     test: true,
     md: 'md' as 'md'
   };
-  const output_tpl = tpl_engine_new(tpls, 'tplA');
-  const tpl = output_tpl(envs);
+  const outputTpl = tplEngineNew(tpls, 'tplA');
+  const tpl = outputTpl(envs);
   ```
 
 - _typeof
@@ -269,4 +303,18 @@ The Utils for omni-door's projects.
   _typeof(Symbol('symbol')); // "symbol"
   _typeof(''); // "string"
   _typeof(0); // "number"
+  ```
+
+- isInGitRepository
+  ```js
+  import { isInGitRepository } from '@omni-door/utils';
+
+  isInGitRepository(); // return boolean
+  ```
+
+- tryGitInit
+  ```js
+  import { tryGitInit } from '@omni-door/utils';
+
+  tryGitInit(); // try to init git repo
   ```
