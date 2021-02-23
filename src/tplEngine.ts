@@ -21,7 +21,7 @@ export function _typeof (ele: any) {
   return Object.prototype.toString.call(ele).slice(8, len).toLowerCase();
 }
 
-export function tpl_engine_new (
+export function tplEngineNew (
   tpls: { [tplName: string]: string },
   tplName: string,
   params?: { [param: string]: string | number | boolean }
@@ -95,7 +95,7 @@ export interface ENV_INIT {
 }
 type AlterEnv_INIT = Exclude<keyof ENV_INIT, 'project_name' | 'project_type' | 'style' | 'strategy'>;
 
-export function tpl_engine_init (
+export function tplEngineInit (
   tpls: { [tplName: string]: string },
   tplName: string,
   params?: { [param: string]: string | number | boolean }

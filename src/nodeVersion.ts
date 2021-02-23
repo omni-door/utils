@@ -23,7 +23,7 @@ const VERSION_MATCH_DICT = [
   }
 ];
 
-async function node_version (v: string) {
+async function nodeVersion (v: string) {
   if (!v) return Promise.resolve(false);
 
   return new Promise((resolve) => {
@@ -81,8 +81,8 @@ function reg_version (vlevel: 0 | 1 | 2) {
   return regs[vlevel];
 }
 
-async function version_check (v: string) {
-  const res = await node_version(v);
+async function nodeVersionCheck (v: string) {
+  const res = await nodeVersion(v);
   if (!res) {
     logWarn(`请将 node 版本升级至 ${v} 以上 (Please upgrade the node version to ${v} or above)`);
     return process.exit(0);
@@ -91,4 +91,4 @@ async function version_check (v: string) {
   return true;
 }
 
-export default version_check;
+export default nodeVersionCheck;

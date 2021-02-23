@@ -1,4 +1,4 @@
-import { npm_version } from './npmVersion';
+import { getNpmVersion } from './npmVersion';
 import type { Options } from './npmVersion';
 import type { STRATEGY } from './global.d';
 
@@ -6,7 +6,7 @@ export async function getDependency <T extends Record<string, string>>(strategy:
   const latestVersions: Record<keyof T, any> = {} as any;
   if (strategy === 'latest') {
     const depKey = Object.keys(dependencies);
-    await Promise.all(depKey.map(v => npm_version(v, options).then(ver => {
+    await Promise.all(depKey.map(v => getNpmVersion(v, options).then(ver => {
       ver = ver ? `^${ver}` : 'latest';
       latestVersions[v as keyof T] = ver;
     })));

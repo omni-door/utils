@@ -9,7 +9,7 @@ export type Options = {
   hostname?: string;
 };
 
-export async function npm_version (pkgName: string, options?: Options) {
+export async function getNpmVersion (pkgName: string, options?: Options) {
   const {
     protocol = 'https',
     hostname = 'registry.npmjs.org'
@@ -49,11 +49,11 @@ export async function npm_version (pkgName: string, options?: Options) {
   return lastVersion;
 }
 
-async function version_check (pkgName: string, v: string, options?: {
+async function npmVersionCheck (pkgName: string, v: string, options?: {
   protocol?: string;
   hostname?: string;
 }) {
-  const version = await npm_version(pkgName, options);
+  const version = await getNpmVersion(pkgName, options);
   if (version && semver.lt(v, version)) {
     console.log('\n');
     logInfo(`为了更好的使用体验，请将 ${pkgName} 的版本升级至 ${version} (Please upgrade the ${pkgName} to ${version} for better use experience)`);
@@ -64,4 +64,4 @@ async function version_check (pkgName: string, v: string, options?: {
   return true;
 }
 
-export default version_check;
+export default npmVersionCheck;

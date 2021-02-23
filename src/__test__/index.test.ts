@@ -16,7 +16,7 @@ import nodeVersion from '../nodeVersion';
 import npmVersion from '../npmVersion';
 import outputFile from '../outputFile';
 import spinner from '../spinner';
-import { tpl_engine_init as tplEngineInit, tpl_engine_new as tplEngineNew, _typeof } from '../tplEngine';
+import { tplEngineInit, tplEngineNew, _typeof } from '../tplEngine';
 import { default as requireCwd } from '../requireCwd';
 import { isInGitRepository, tryGitInit } from '../gitHandlers';
 import updateNotifier from '../updateNotifier';
