@@ -18,7 +18,7 @@ export function outputFile ({
         encoding: 'utf8',
         mode
       });
-      !silent && logDetail(`创建文件(create file)：${file_path}`);
+      !silent && logDetail(`Create file(创建文件)：${file_path}`);
     }
   } catch (err) {
     !silent && logErr(err);
