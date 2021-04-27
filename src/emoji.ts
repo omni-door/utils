@@ -1,9 +1,9 @@
 export const stateMap2Emoji = {
   'start': '💤',
-  'info': '🔰',
+  'info': '❕',
   'warn': '❗️',
   'fail': '❌',
   'succeed': '✅',
   'stop': '❓',
-  'emphasis': '🚩'
+  'emphasis': '💥'
 };

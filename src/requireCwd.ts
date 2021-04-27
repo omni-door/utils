@@ -12,8 +12,8 @@ export default function (moduleId: string, silent?: boolean) {
     const realPath = require.resolve(moduleId, cwdPaths);
     if (!fs.existsSync(realPath)) {
       if (!silent) {
-        logWarn(`The【 ${realPath} 】is invalid path`);
-        logWarn(`【 ${realPath} 】是一个无效的路径！`);
+        logWarn(`The "${realPath}" is invalid path`);
+        logWarn(`"${realPath}" 是一个无效的路径！`);
       }
     } else {
       result = require(realPath);
