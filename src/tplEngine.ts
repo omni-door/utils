@@ -9,7 +9,7 @@ export interface ENV_NEW {
   style?: STYLE;
   ts?: boolean;
   test?: boolean;
-  md?: MARKDOWN;
+  md?: MARKDOWN | boolean;
   [propsName: string]: string | boolean | number | void;
 }
 type AlterEnv_NEW = Exclude<keyof ENV_NEW, 'componentName' | 'style' | 'md' | 'newPath'>;
