@@ -56,8 +56,8 @@ async function npmVersionCheck (pkgName: string, v: string, options?: {
   const version = await getNpmVersion(pkgName, options);
   if (version && semver.lt(v, version)) {
     console.log('\n');
-    logInfo(`Please upgrade the ${pkgName} to ${version} for better use experience`);
-    logInfo(`为了更好的使用体验，请将 ${pkgName} 的版本升级至 ${version}`);
+    logInfo(`A new version ${pkgName} (${version}) is available!`);
+    logInfo(`最新版本的 ${pkgName} 为 ${version}！`);
     console.log('\n');
     return false;
   }
