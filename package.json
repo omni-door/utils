@@ -1,6 +1,6 @@
 {
   "name": "@omni-door/utils",
-  "version": "1.2.7",
+  "version": "1.2.8",
   "description": "The utils of omni-door's projects",
   "main": "lib/index.js",
   "scripts": {
@@ -37,7 +37,7 @@
     "fs-extra": "8.1.0",
     "ora": "4.0.3",
     "semver": "7.3.4",
-    "shelljs": "0.8.3",
+    "shelljs": "0.8.5",
     "signale": "1.4.0",
     "update-notifier": "5.1.0",
     "validate-npm-package-name": "3.0.0"
