@@ -11,6 +11,7 @@ import {
   logErr,
   logInfo,
   logSuc,
+  logCongrat,
   logWarn,
   logTime,
   underline,
@@ -46,6 +47,7 @@ export {
   logSuc,
   logWarn,
   logTime,
+  logCongrat,
   underline,
   italic
 } from './logger';
@@ -79,6 +81,7 @@ export default {
   logInfo,
   logSuc,
   logWarn,
+  logCongrat,
   logTime,
   underline,
   italic,
