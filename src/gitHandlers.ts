@@ -19,7 +19,7 @@ export function tryGitInit() {
     execSync('git init', { stdio: 'ignore' });
     return true;
   } catch (e) {
-    logWarn(e);
+    logWarn(e as any);
     logWarn('Git-repo init failed');
     logWarn('Git仓库初始化失败');
     return false;

@@ -13,11 +13,11 @@ export const interactive = () => new Signale({
 });
 
 export function logErr (err: string) {
-  console.error(chalk.red(getLogPrefix(), err, stateMap2Emoji.fail, '\n'));
+  console.error(chalk.redBright(getLogPrefix(), err, stateMap2Emoji.fail, '\n'));
 }
 
 export function logWarn (warn: string) {
-  console.warn(chalk.yellow(getLogPrefix(), warn, stateMap2Emoji.warn, '\n'));
+  console.warn(chalk.yellowBright(getLogPrefix(), warn, stateMap2Emoji.warn, '\n'));
 }
 
 export function logInfo (info: string) {
@@ -29,11 +29,15 @@ export function logDetail (detail: string) {
 }
 
 export function logEmph (info: string) {
-  console.info(chalk.cyan(getLogPrefix(), info, stateMap2Emoji.emphasis, '\n'));
+  console.info(chalk.cyanBright(getLogPrefix(), info, stateMap2Emoji.hot, '\n'));
 }
 
 export function logSuc (msg: string) {
-  console.info(chalk.green(getLogPrefix(), chalk.bold(msg), stateMap2Emoji.succeed, '\n'));
+  console.info(chalk.greenBright(getLogPrefix(), chalk.bold(msg), stateMap2Emoji.succeed, '\n'));
+}
+
+export function logCongrat (msg: string) {
+  console.info(chalk.magentaBright(getLogPrefix(), chalk.bold(msg), stateMap2Emoji.congratulation, '\n'));
 }
 
 export function logTime (msg: string, isEnd?: boolean) {

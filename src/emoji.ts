@@ -5,5 +5,9 @@ export const stateMap2Emoji = {
   'fail': '❌',
   'succeed': '✅',
   'stop': '❓',
-  'emphasis': '💥'
+  'explosion': '💥',
+  'congratulation': '🎉',
+  'hot': '🔥',
+  'loading': '⏳',
+  'sunshine': '🔆'
 };

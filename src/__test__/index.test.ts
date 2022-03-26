@@ -5,7 +5,7 @@ import { expect } from 'chai';
 import exec from '../exec';
 import { stateMap2Emoji } from '../emoji';
 import logPrefix, { setLogo, getLogo, setBrand, getBrand } from '../logPrefix';
-import { logDetail, logEmph, logInfo, logErr, logWarn, logSuc, underline, italic } from '../logger';
+import { logDetail, logEmph, logInfo, logErr, logWarn, logSuc, logCongrat, underline, italic } from '../logger';
 import {
   getDependency,
   arr2str,
@@ -53,13 +53,17 @@ describe('exec test', function () {
 describe('stateMap2Emoji test', function () {
   it('type checking', function () {
     expect(stateMap2Emoji).to.be.an('object');
-    expect(stateMap2Emoji.emphasis).to.be.a('string');
+    expect(stateMap2Emoji.explosion).to.be.a('string');
     expect(stateMap2Emoji.fail).to.be.a('string');
     expect(stateMap2Emoji.info).to.be.a('string');
     expect(stateMap2Emoji.start).to.be.a('string');
     expect(stateMap2Emoji.stop).to.be.a('string');
     expect(stateMap2Emoji.succeed).to.be.a('string');
     expect(stateMap2Emoji.warn).to.be.a('string');
+    expect(stateMap2Emoji.congratulation).to.be.a('string');
+    expect(stateMap2Emoji.hot).to.be.a('string');
+    expect(stateMap2Emoji.sunshine).to.be.a('string');
+    expect(stateMap2Emoji.loading).to.be.a('string');
   });
 });
 
@@ -139,6 +143,10 @@ describe('logger test', function () {
     logSuc('log success');
   });
 
+  it('call congrat', function () {
+    logCongrat('log congrat');
+  });
+  
   it('call underline', function () {
     const msg = underline('underline message');
     expect(msg).to.be.a('string');

@@ -18,7 +18,7 @@ export default function (moduleId: string, silent?: boolean) {
     } else {
       result = require(realPath);
     }
-  } catch (err) { !silent && logWarn(err); }
+  } catch (err) { !silent && logWarn(err as string); }
 
   return result;
 }

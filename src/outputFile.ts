@@ -21,7 +21,7 @@ export function outputFile ({
       !silent && logDetail(`Create file(创建文件)：${file_path}`);
     }
   } catch (err) {
-    !silent && logErr(err);
+    !silent && logErr(err as any);
   }
 }
 
