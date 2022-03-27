@@ -123,6 +123,7 @@ export function tplEngineInit (
       },
       alter_project_type: function (tplNames: {
         'spa-react'?: string;
+        'spa-react-pc'?: string;
         'spa-vue'?: string;
         'ssr-react'?: string;
         'ssr-vue'?: string;
