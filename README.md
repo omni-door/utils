@@ -171,6 +171,14 @@ The Utils for omni-door's projects.
   getNpmVersion('@omni-door/cli'); // 2.2.14
   ```
 
+- getNpmVersions
+  ```js
+  import { getNpmVersions } from '@omni-door/utils';
+
+  // get the npm-package latest version
+  getNpmVersions('@omni-door/cli'); // [..., 2.2.14, 2.2.15, ....]
+  ```
+
 - pkgNameCheck
   ```js
   import { pkgNameCheck } from '@omni-door/utils';
