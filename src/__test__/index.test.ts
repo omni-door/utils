@@ -13,7 +13,7 @@ import {
 } from '../dependencies';
 import pkgName from '../pkgName';
 import nodeVersion from '../nodeVersion';
-import npmVersion from '../npmVersion';
+import npmVersion, { getNpmVersion, getNpmVersions } from '../npmVersion';
 import outputFile from '../outputFile';
 import spinner from '../spinner';
 import { tplEngineInit, tplEngineNew, _typeof } from '../tplEngine';
@@ -193,6 +193,20 @@ describe('npmVersion test', function () {
   it('call npmVersion', function (done) {
     npmVersion('@omni-door/cli', '2.0.0').then(res => {
       expect(res).to.be.false;
+      done();
+    });
+  });
+
+  it('call getNpmVersion', function (done) {
+    getNpmVersion('@omni-door/cli').then(res => {
+      expect(res).to.be.string;
+      done();
+    });
+  });
+
+  it('call getNpmVersions', function (done) {
+    getNpmVersions('@omni-door/cli').then(res => {
+      expect(res).to.be.an('array');
       done();
     });
   });
@@ -379,7 +393,7 @@ describe('requireCwd test', function () {
   });
 
   it('call requireCwd - package.json', function () {
-    const pkj = requireCwd('./package.json');
+    const pkj = requireCwd('./package.json') as any;
     expect(pkj).to.be.a('object');
     expect(pkj.name).to.be.equal('@omni-door/utils');
   });
