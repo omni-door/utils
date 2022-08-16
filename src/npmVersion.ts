@@ -7,19 +7,21 @@ import { logInfo } from './logger';
 export type Options = {
   protocol?: string;
   hostname?: string;
+  registry?: string;
 };
 
 export async function getNpmVersion (pkgName: string, options?: Options) {
   const {
     protocol = 'https',
-    hostname = 'registry.npmjs.org'
+    hostname = 'registry.npmjs.org',
+    registry = 'https://registry.npmjs.org',
   } = options || {};
-  const registry = `${protocol}://${hostname}`;
-  const checkUrl = `${registry}/-/package/${pkgName}/dist-tags`;
+  const url = registry || `${protocol}://${hostname}`;
+  const checkUrl = `${url}/-/package/${pkgName}/dist-tags`;
 
   const npmViewCheck = () => {
     try {
-      return execSync(`npm view ${pkgName} version --registry=${registry}`).toString().trim();
+      return execSync(`npm view ${pkgName} version --registry=${url}`).toString().trim();
     } catch (e) {
       return null;
     }
@@ -52,12 +54,13 @@ export async function getNpmVersion (pkgName: string, options?: Options) {
 export async function getNpmVersions (pkgName: string, options?: Options) {
   const {
     protocol = 'https',
-    hostname = 'registry.npmjs.org'
+    hostname = 'registry.npmjs.org',
+    registry = 'https://registry.npmjs.org',
   } = options || {};
-  const registry = `${protocol}://${hostname}`;
+  const url = registry || `${protocol}://${hostname}`;
 
-  return new Promise((resolve, reject) => {
-    exec(`npm view ${pkgName} versions --registry=${registry}`, function (err, stdout, stderr) {
+  return new Promise<string[]>((resolve, reject) => {
+    exec(`npm view ${pkgName} versions --registry=${url}`, function (err, stdout, stderr) {
       if (err || stderr) {
         reject(err || stderr);
         return;
