@@ -1,7 +1,7 @@
 import http from 'http';
 import https from 'https';
 import semver from 'semver';
-import { execSync } from'child_process';
+import { exec, execSync } from'child_process';
 import { logInfo } from './logger';
 
 export type Options = {
@@ -47,6 +47,24 @@ export async function getNpmVersion (pkgName: string, options?: Options) {
 
 
   return lastVersion;
+}
+
+export async function getNpmVersions (pkgName: string, options?: Options) {
+  const {
+    protocol = 'https',
+    hostname = 'registry.npmjs.org'
+  } = options || {};
+  const registry = `${protocol}://${hostname}`;
+
+  return new Promise((resolve, reject) => {
+    exec(`npm view ${pkgName} versions --registry=${registry}`, function (err, stdout, stderr) {
+      if (err || stderr) {
+        reject(err || stderr);
+        return;
+      }
+      resolve(stdout.replace(/(\s|\[|\]|')+/g, '').split(','));
+    });
+  });
 }
 
 async function npmVersionCheck (pkgName: string, v: string, options?: {
