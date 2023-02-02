@@ -74,15 +74,18 @@ async function npmVersionCheck (pkgName: string, v: string, options?: {
   protocol?: string;
   hostname?: string;
 }) {
-  const version = await getNpmVersion(pkgName, options);
-  if (version && semver.lt(v, version)) {
-    console.log('\n');
-    logInfo(`A new version ${pkgName} (${version}) is available!`);
-    logInfo(`最新版本的 ${pkgName} 为 ${version}！`);
-    console.log('\n');
-    return false;
+  try {
+    const version = await getNpmVersion(pkgName, options);
+    if (version && semver.lt(v, version)) {
+      console.log('\n');
+      logInfo(`A new version ${pkgName} (${version}) is available!`);
+      logInfo(`最新版本的 ${pkgName} 为 ${version}！`);
+      console.log('\n');
+      return false;
+    }
+  } catch (e) {
+    logInfo(e as string);
   }
-
   return true;
 }
 
