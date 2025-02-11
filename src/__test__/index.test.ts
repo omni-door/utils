@@ -191,7 +191,7 @@ describe('npmVersion test', function () {
   });
 
   it('call npmVersion', function (done) {
-    npmVersion('@omni-door/cli', '2.0.0').then(res => {
+    npmVersion('@omni-door/cli', '200.0.0').then(res => {
       expect(res).to.be.false;
       done();
     });

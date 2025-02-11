@@ -66,7 +66,7 @@ export { default as requireCwd } from './requireCwd';
 export { isInGitRepository, tryGitInit } from './gitHandlers';
 export { default as updateNotifier } from './updateNotifier';
 
-export type { BUILD, PKJTOOL, PLUGINSTAGE, PROJECT_TYPE, STRATEGY, STYLE, LAYOUT, LOGLEVEL, MARKDOWN, SPASERVER, COMPONENTSERVER, SSRSERVER, TESTFRAME, HASH } from './global.d';
+export type { BUILD, PKJ_TOOL, PLUGIN_STAGE, PROJECT_TYPE, STRATEGY, STYLE, LAYOUT, LOGLEVEL, MARKDOWN, SPA_SERVER, COMPONENT_SERVER, SSR_SERVER, TEST_FRAME, HASH } from './global.d';
 
 export default {
   exec,

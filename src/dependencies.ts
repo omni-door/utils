@@ -15,10 +15,10 @@ export async function getDependency <T extends Record<string, string>>(strategy:
   return function (key: keyof T) {
     if (strategy === 'latest') {
       const version = latestVersions[key] || 'latest';
-      return `${key}@${version}`;
+      return `${String(key)}@${version}`;
     }
 
-    return `${key}@${dependencies[key] || 'latest'}`;
+    return `${String(key)}@${dependencies[key] || 'latest'}`;
   };
 }
 
