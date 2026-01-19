@@ -84,8 +84,7 @@ function reg_version (vlevel: 0 | 1 | 2) {
 async function nodeVersionCheck (v: string) {
   const res = await nodeVersion(v);
   if (!res) {
-    logWarn(`Please upgrade the node version to ${v} or above`);
-    logWarn(`请将 node 版本升级至 ${v} 以上`);
+    logWarn(`Please upgrade Node.js to version ${v} or later.`);
     return process.exit(0);
   }
 

@@ -6,8 +6,7 @@ function pkgName (name: string, noExit?: boolean) {
   const validationResult = validateProjectName(name);
   if (!validationResult.validForNewPackages) {
     const pkjName = chalk.green(`"${name}"`);
-    logWarn(`The ${pkjName} is invalid project name because of npm naming restrictions`);
-    logWarn(`根据 npm 的规定，${pkjName} 是非法的项目名`);
+    logWarn(`${pkjName} is an invalid project name per npm naming rules.`);
     [
       ...(validationResult.errors || []),
       ...(validationResult.warnings || []),

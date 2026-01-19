@@ -20,8 +20,7 @@ export function tryGitInit() {
     return true;
   } catch (e) {
     logWarn(e as any);
-    logWarn('Git-repo init failed');
-    logWarn('Git仓库初始化失败');
+    logWarn('Git repo initialization failed.');
     return false;
   }
 }
